@@ -109,7 +109,12 @@
     width: 350px;
 }
 .item_name_input{
-    width: 180px;
+    width: 200px;
+    border: 0px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
 }
 
 
@@ -130,13 +135,16 @@
     height: 40px;
     margin: 15px;
     font-size: 18px;
+    border: 1px solid rgb(175, 185, 161);
+    border-radius: 10px;
+    color: rgb(77, 77, 77);
 }
 #add_study_btn{
     width: 40px;
     height: 40px;
     border-radius: 10px;
     border: 2px solid white;
-    background-color: rgb(193, 224, 107);
+    background-color: rgb(178, 202, 112);
     font-weight: bold;
     margin: 5px;
 }

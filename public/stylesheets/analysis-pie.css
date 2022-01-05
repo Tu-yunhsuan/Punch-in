@@ -1,6 +1,16 @@
-#main h3{
+#main h1{
     text-align: center;
     margin: 30px  auto;
+    font-weight: bold;
+    color: rgb(54, 54, 54);
+}
+#char-image{
+    width: 450px;
+    height: 450px;
+    margin: 30px auto;
+    padding: 50px;
+    background-color: ghostwhite;
+    border-radius: 20px;
 }
 #guest{
     text-align: center;

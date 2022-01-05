@@ -27,6 +27,10 @@ router.get('/today', (req, res) => {
 router.get('/group', (req, res) => {
   res.render('group');
 });
+/* Habit */
+router.get('/habit', (req, res) => {
+  res.render('habit');
+});
 /* Exercise */
 router.get('/exercise', (req, res) => {
   res.render('exercise');

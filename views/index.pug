@@ -19,6 +19,7 @@ block content
         a#home.list-group-item.list-group-item-action.active(href='/index') Home
         a#today.list-group-item.list-group-item-action(href='/today') Today
         a#group.list-group-item.list-group-item-action(href='/group') Group
+        a#today.list-group-item.list-group-item-action(href='/habit') Habit
         a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
         a#today.list-group-item.list-group-item-action(href='/study') Study
         a#analysis.list-group-item.list-group-item-action(href='/analysis') Analysis
@@ -33,19 +34,27 @@ block content
     #main
       .row
         a(href='/today')
-          button#my_habit.my_btn(type='button') 我的習慣
-      .row
+          button#my_today.my_btn(type='button') Today List
+            img.btn_img(src="images/today.svg", alt="today")
         a(href='/group')
           button#my_group.my_btn(type='button') 我的群組
+            img.btn_img(src="images/group.svg", alt="group")
       .row
+        a(href='/habit')
+          button#my_habit.my_btn(type='button') 我的習慣
+            img.btn_img(src="images/habit.svg", alt="habit") 
+      
         a(href='/exercise')
           button#my_exercise.my_btn(type='button') 運動目標
+            img.btn_img(src="images/exercise.svg", alt="exercise")
       .row
         a(href='/study')
           button#my_study.my_btn(type='button') 學習目標
-      .row
+            img.btn_img(src="images/study.svg", alt="study")
+      
         a(href='/analysis')
           button#my_analysis.my_btn(type='button') 習慣分析
+            img.btn_img(src="images/line-graph.png", alt="chart")
 
 block javascripts
 

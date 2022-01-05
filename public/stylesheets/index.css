@@ -1,16 +1,19 @@
 /* 首頁 */
+/* #container{
+    height: 100%;
+} */
 #main a{
     text-align: center;
     width: 220px;
-    margin: 0px auto;
-    margin-top: 50px;
-    border-radius: 50px;
+    margin: 50px auto;
+    /* margin-top: 50px; */
+    border-radius: 20px;
 }
 .my_btn{
-    width: 200px;
-    height: 130px;
+    width: 220px;
+    height: 220px;
     border: 0px;
-    border-radius: 30px;
+    border-radius: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
@@ -25,10 +28,15 @@
     background-color: whitesmoke;
     color: slategray;
 }
+.btn_img{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
 #status p{
     text-align:right;
-    margin: 10px 10px 0px 0px;
+    margin: 10px 20px 0px 0px;
     font-weight: bold;
-    font-size: 18px;
-    color: slategray;
+    font-size: 20px;
+    color: rgb(84, 97, 110);
 }

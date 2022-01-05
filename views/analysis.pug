@@ -19,6 +19,7 @@ block content
         a#home.list-group-item.list-group-item-action(href='/index') Home
         a#today.list-group-item.list-group-item-action(href='/today') Today
         a#group.list-group-item.list-group-item-action(href='/group') Group
+        a#today.list-group-item.list-group-item-action(href='/habit') Habit
         a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
         a#today.list-group-item.list-group-item-action(href='/study') Study
         a#analysis.list-group-item.list-group-item-action.active(href='/analysis') Analysis
@@ -26,12 +27,18 @@ block content
     // 內容
     if username
       #main
+        .row 
+          h1#analysis_title 習慣與時間分析
+            img#title_img(src="images/line-graph.png", alt="chart") 
         .row
           a.link_css(href='/analysis-pie')
             button.analysis_btn(type='button') 時間圓餅圖
+              img(src="images/pie-chart.svg", alt="pie-chart")
         .row
           a.link_css(href='/analysis-line')
             button.analysis_btn(type='button') 打卡折線圖
+              img(src="images/line-chart.svg", alt="line-chart")  
+                
     else
       #guest
         .row

@@ -1,9 +1,9 @@
 #container {
-    background-color: rgb(241, 237, 206);
+    background-color: rgb(223, 216, 208);
 }
 /* 標題列 */
 #header {
-    background-color: rgb(206, 181, 68);
+    background-color: rgb(134, 119, 86);
 }
 
 .item {
@@ -49,10 +49,10 @@
     text-align: center;
 }
 #todo_title, #done_title {
-    background-color: rgba(169, 156, 112, 0.8);
+    background-color: rgba(119, 108, 85, 0.8);
 }
 .done-item{
-    background-color: rgba(139, 135, 97, 0.35);
+    background-color: rgba(97, 89, 71, 0.35);
     /* display: inline-flex;
     width: 100%;
     border: 1px solid gray;
@@ -60,54 +60,7 @@
     /*text-decoration:line-through;*/
     /*觸發在方框裡顯示打勾圖案*/
 }
-.timeDisplay{
-    font-size: 30px;
-    font-weight: bold;
-    border: 2px solid gray;
-    width: 50%;
-    margin: 10px 10px;
-    padding: 10px 10px;
-    text-align: center;
-}
-/* #Btndropdown{
-    font-size: 20px;
-    border: 1px solid gray;
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
-    margin: 15px 0px 0px 320px;
-    text-align: center;
-}
-#timeRecord{
-    width: 300px;
-    height: 80px;
-    padding: 30px;
-    border: 2px solid gray;
-    background-color: ghostwhite;
-    position: fixed;
-    top: 120px;
-    right: 10px;
-} */
-.time-area{
-    display: inline-flex;
-    float: right;
-    margin: -100px -10px
-}
-.time_button{
-    font-size: 20px;
-    border: 2px solid;
-    border-radius: 50px;
-    width: 60px;
-    height: 60px;
-    margin: 30px 10px;
-    text-align: center;
-}
-/* #flush-collapseOne {
-    width: 350px;
-} */
-.timerControl{
-    width: 350px;
-}
+
 .item_name_input{
     width: 200px;
     border: 0px;
@@ -119,32 +72,39 @@
 
 
 /* 20220103 */
-#exercise_title{
+#habit_title{
     text-align: center;
     font-weight: bold;
     margin: 10px;
 }
-#add_exercise_box{
+#add_habit_box{
     text-align: center;
     margin: 15px;
     font-size: 20px;
     font-weight: bold;
 }
-#add_exercise{
+#add_habit{
     width: 200px;
     height: 40px;
     margin: 15px;
     font-size: 18px;
-    border: 1px solid rgb(202, 198, 168);
+    border: 1px solid rgb(143, 121, 94);
     border-radius: 10px;
     color: rgb(77, 77, 77);
 }
-#add_exercise_btn{
+#add_habit_count{
+    height: 40px;
+    margin: 10px;
+    border: 1px solid rgb(143, 121, 94);
+    border-radius: 10px;
+    color: rgb(77, 77, 77);
+}
+#add_habit_btn{
     width: 40px;
     height: 40px;
     border-radius: 10px;
     border: 2px solid white;
-    background-color: rgb(238, 228, 94);
+    background-color: rgb(136, 107, 69);
     font-weight: bold;
     margin: 5px;
 }

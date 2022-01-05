@@ -72,7 +72,7 @@ function newExercise(data) {
     $('#todo_title').after(content);
 }
 
-//編輯待辦事項
+//編輯運動項目
 function editExercise(id) {
     console.log("編輯運動目標");
     $('#btnEdit' + id).addClass("d-none");
@@ -80,7 +80,7 @@ function editExercise(id) {
     $('#btnUpdate' + id).removeClass("d-none");
     $('#title' + id).attr("readonly", false);
 }
-//更新待辦事項
+//更新運動項目
 function updateExercise(id) {
     console.log("修改運動目標");
     var title = $("#title"+id).val();
@@ -95,7 +95,7 @@ function updateExercise(id) {
         }
     });
 }
-//刪除待辦事項
+//刪除運動項目
 function deleteExercise(id) {
     console.log("刪除運動目標");
     var API = "/api_exercise/deleteExercise";

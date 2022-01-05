@@ -1,15 +1,33 @@
+#analysis_title{
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    margin: 30px auto;
+    color: rgb(37, 37, 37);
+}
+#title_img{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
 .analysis_btn{
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
     border: 0px;
-    border-radius: 100px;
+    border-radius: 50px;
     margin: auto;
     margin-top: 50px;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     background-color: ghostwhite;
     color: slategrey;
+}
+.analysis_btn img{
+    height: 200px;
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
 }
 .analysis_btn:hover{
     background-color: slategray;
@@ -19,6 +37,7 @@
     background-color: whitesmoke;
     color: slategray;
 }
+
 .link_css{
     text-align: center;
 }

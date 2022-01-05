@@ -19,6 +19,7 @@ block content
         a#home.list-group-item.list-group-item-action(href='/index') Home
         a#today.list-group-item.list-group-item-action(href='/today') Today
         a#group.list-group-item.list-group-item-action(href='/group') Group
+        a#today.list-group-item.list-group-item-action(href='/habit') Habit
         a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
         a#today.list-group-item.list-group-item-action(href='/study') Study
         a#analysis.list-group-item.list-group-item-action.active(href='/analysis') Analysis
@@ -26,7 +27,9 @@ block content
     // 內容
     if username
       #main
-        h3 時間圓餅圖
+        h1 時間圓餅圖
+        .row
+          img#char-image(src="images/pie-chart-image.svg", alt="chart") 
     else
       #guest
         .row
