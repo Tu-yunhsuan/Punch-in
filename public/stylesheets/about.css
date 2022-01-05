@@ -1,14 +1,18 @@
 .part{
+    width: 500px;
+    height: 100%;
+    text-align: center;
     background-color: whitesmoke;
-    margin-top: 20px;
+    margin: 35px auto 10px auto;
     padding: 10px;
+    border-radius: 20px;
 }
 .sub_title{
     padding: 10px 0px 10px 0px;
     text-align: center;
     font-weight: bold;
-    font-size: 24px;
-    color: rgb(176, 179, 146);
+    font-size: 28px;
+    color: rgb(144, 146, 115);
 }
 .sub_content{
     padding: 0px 50px 10px 50px;
@@ -16,4 +20,10 @@
     font-size: 18px;
     color: rgb(85, 85, 81);
     text-align: center;
+}
+.project_member{
+    color: rgb(85, 85, 81);
+}
+.project_member img{
+    margin: 5px;
 }

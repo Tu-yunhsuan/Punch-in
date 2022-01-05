@@ -5,7 +5,7 @@
 #main a{
     text-align: center;
     width: 220px;
-    margin: 50px auto;
+    margin: 50px;
     /* margin-top: 50px; */
     border-radius: 20px;
 }

@@ -46,15 +46,18 @@ block content
                     //-     button#user_out_btn(type='button') 登出
         else
             #main  
-                #login_status.row
-                    h2 尚未登入帳號
-                    p (登入或註冊以使用更多功能)
+                .row
+                    #login_status
+                        h2 尚未登入帳號
+                        p (登入或註冊以使用更多功能)
                 .row
                     a(href='/login')
                         button#user_login_btn.my_btn(type='button') 登入
+                            img.btn_img(src="images/login.svg", alt="login")
                 .row
                     a(href='/sign-up')
                         button#user_signup_btn.my_btn(type='button') 註冊
+                            img.btn_img(src="images/sign-up.svg", alt="sign-up")
         
             
         
