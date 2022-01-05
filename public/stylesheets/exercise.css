@@ -1,0 +1,156 @@
+#container {
+    background-color: rgb(241, 237, 206);
+}
+/* 標題列 */
+#header {
+    background-color: rgb(206, 181, 68);
+}
+
+.item {
+    display: inline-flex;
+    width: 100%;
+    border-bottom: 1.5px solid gray;
+    font-size: 20px;
+    padding: 10px;
+    align-items: center;
+}
+.checkbox {
+    min-width: 30px;
+    height: 30px;
+    border: 1.5px solid gray;
+    background-color: white;
+    margin: 0 10px;
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.checkbox img {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.item_name {
+    width: 100%;
+    padding-left: 5%;
+    overflow: hidden;
+}
+/* .item_more{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 5px 10px 10px;
+} */
+#done_container div, #done_title, #done-item-amount {
+    color: rgba(0, 0, 0, 0.5);
+}
+#todo_title, #done_title {
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+#todo_title, #done_title {
+    background-color: rgba(169, 156, 112, 0.8);
+}
+.done-item{
+    background-color: rgba(139, 135, 97, 0.35);
+    /* display: inline-flex;
+    width: 100%;
+    border: 1px solid gray;
+    font-size: 20px; */
+    /*text-decoration:line-through;*/
+    /*觸發在方框裡顯示打勾圖案*/
+}
+.timeDisplay{
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px solid gray;
+    width: 50%;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    text-align: center;
+}
+/* #Btndropdown{
+    font-size: 20px;
+    border: 1px solid gray;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    margin: 15px 0px 0px 320px;
+    text-align: center;
+}
+#timeRecord{
+    width: 300px;
+    height: 80px;
+    padding: 30px;
+    border: 2px solid gray;
+    background-color: ghostwhite;
+    position: fixed;
+    top: 120px;
+    right: 10px;
+} */
+.time-area{
+    display: inline-flex;
+    float: right;
+    margin: -100px -10px
+}
+.time_button{
+    font-size: 20px;
+    border: 2px solid;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    margin: 30px 10px;
+    text-align: center;
+}
+/* #flush-collapseOne {
+    width: 350px;
+} */
+.timerControl{
+    width: 350px;
+}
+.item_name_input{
+    width: 180px;
+}
+
+
+/* 20220103 */
+#exercise_title{
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+}
+#add_exercise_box{
+    text-align: center;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#add_exercise{
+    width: 200px;
+    height: 40px;
+    margin: 15px;
+    font-size: 18px;
+}
+#add_exercise_btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgb(238, 228, 94);
+    font-weight: bold;
+    margin: 5px;
+}
+/* .item_edit{
+    width: 50px;
+    padding: 5px;
+}
+.item_delete{
+    width: 50px;
+    padding: 5px;
+} */
+.btn_more{
+    width: 40px;
+    padding: 5px;
+    border: 0px;
+    background-color: transparent;
+}

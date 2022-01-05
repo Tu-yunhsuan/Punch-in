@@ -1,0 +1,150 @@
+extends layout
+
+block stylesheets
+  link(rel='stylesheet' href='/stylesheets/group.css')
+
+block content
+  #container
+    // 置頂列
+    #header
+      #menu_btn
+        a(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+          img(src='images/menu.svg' alt='')
+      #title Punch in !
+      #login_btn
+        a(href='/user')
+          img(src='images/user.svg' alt='')
+    #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+      #sideBar.list-group
+        a#home.list-group-item.list-group-item-action(href='/index') Home
+        a#today.list-group-item.list-group-item-action(href='/today') Today
+        a#group.list-group-item.list-group-item-action.active(href='/group') Group
+        a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
+        a#today.list-group-item.list-group-item-action(href='/study') Study
+        a#analysis.list-group-item.list-group-item-action(href='/analysis') Analysis
+        a#about.list-group-item.list-group-item-action(href='/about') About us
+
+    // 內容
+    #main
+      nav#group_tag
+        #nav-tab.nav.nav-tabs(role='tablist')
+          button#nav-home-tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#nav-home' type='button' role='tab' aria-controls='nav-home' aria-selected='true') 默認群組
+          button#nav-profile-tab.nav-link(data-bs-toggle='tab' data-bs-target='#nav-profile' type='button' role='tab' aria-controls='nav-profile' aria-selected='false') 群組一
+          // Button trigger modal
+          button#group_add.nav-link(data-bs-toggle='modal' data-bs-target='#new_group')
+            img(src='images/plus.svg' alt='')
+
+      #nav-tabContent.tab-content
+        #nav-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='nav-home-tab')
+          ul.list-group
+            li.list-group-item.d-flex.justify-content-between.align-items-center.item
+              // <div class="checkbox"></div>
+              .item_name 項目一
+              .d-grid.gap-2.d-md-flex.justify-content-md-end
+                .item_more ...
+            li.list-group-item.d-flex.justify-content-between.align-items-center.item
+              // <div class="checkbox"></div>
+              .item_name 項目二
+              .d-grid.gap-2.d-md-flex.justify-content-md-end
+                .item_more ...
+            li.list-group-item.d-flex.justify-content-between.align-items-center.item
+              // <div class="checkbox"></div>
+              .item_name 項目三
+              .d-grid.gap-2.d-md-flex.justify-content-md-end
+                .item_more ...
+          #item_add
+            // Button trigger modal
+            button(type='button' data-bs-toggle='modal' data-bs-target='#new_item')
+              img(src='images/plus-circle.svg' alt='')
+        #nav-profile.tab-pane.fade(role='tabpanel' aria-labelledby='nav-profile-tab')
+          ul.list-group
+            li.list-group-item.d-flex.justify-content-between.align-items-center.item
+              // <div class="checkbox"></div>
+              .item_name 項目四
+              .d-grid.gap-2.d-md-flex.justify-content-md-end
+                .item_more ...
+            li.list-group-item.d-flex.justify-content-between.align-items-center.item
+              // <div class="checkbox"></div>
+              .item_name 項目五
+              .d-grid.gap-2.d-md-flex.justify-content-md-end
+                .item_more ...
+            li.list-group-item.d-flex.justify-content-between.align-items-center.item
+              // <div class="checkbox"></div>
+              .item_name 項目六
+              .d-grid.gap-2.d-md-flex.justify-content-md-end
+                .item_more ...
+          #item_add
+            // Button trigger modal
+            button(type='button' data-bs-toggle='modal' data-bs-target='#new_item')
+              img(src='images/plus-circle.svg' alt='')
+        #nav-contact.tab-pane.fade(role='tabpanel' aria-labelledby='nav-contact-tab')
+          .item
+            .checkbox
+            .item_name
+              p 項目一
+            .item_more ...
+          .item
+            .checkbox
+            .item_name
+              p 項目二
+            .item_more ...
+
+      // 建立新群組
+      // Modal
+      #new_group.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+        .modal-dialog.modal-dialog-centered
+          .modal-content
+            form(action="", method="post")
+              .modal-header
+                h5#exampleModalLabel.modal-title
+                  h3 建立新群組
+                button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+              .modal-body 
+                input(type='text' id="input_group" placeholder='請輸入群組名稱')
+              .modal-footer
+                //- input#addNewGroup.btn.btn-primary(type="submit" value="完成")
+                button#addNewGroup.btn.btn-primary(type='button' onclick='addList()') 完成
+    
+      // 建立新項目
+      // Modal
+      #new_item.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+        .modal-dialog.modal-dialog-centered
+          .modal-content
+            .modal-header
+              h5#exampleModalLabel.modal-title 建立新項目
+              button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+            .modal-body
+              form(action="", method="post") 
+                .new_item_bar
+                  label(for="new_item_name")  項目名稱
+                  input(type='text' id='new_item_name' placeholder='請輸入項目名稱')
+                .new_item_bar
+                  label(for="new_item_cycle")  週期
+                  select#new_item_cycle
+                    option 每天
+                    option 每周
+                    option 每月
+                .new_item_bar
+                  label(for="new_item_frequency")  打卡次數
+                  select#new_item_frequency
+                    option 1次
+                    option 2次
+                    option 3次
+                    option 4次
+                    option 5次
+                    option 6次
+                    option 7次
+                    option 8次
+                    option 9次
+                    option 10次
+                .new_item_bar
+                  label(for="new_item_target")  長期目標
+                  input#new_item_target(type='date')
+                .new_item_bar
+                  label(for="new_item_time")  紀錄時間
+                  input#new_item_time(type='checkbox')
+                #new_item_complete
+                  //- input(type='submit' value='完成')
+                  button(type='button' onclick='addItem()') 完成
+
+block javascripts

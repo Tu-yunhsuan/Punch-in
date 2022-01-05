@@ -1,0 +1,29 @@
+#main h3{
+    text-align: center;
+    margin: 30px  auto;
+}
+#guest{
+    text-align: center;
+    margin: 30px  auto;
+}
+#guest h3{
+    color: brown;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    background-color: ghostwhite;
+    border-radius: 10px;
+}
+#guest p{
+    color: dimgray;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+}
+#guest a{
+    color: slategray;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}

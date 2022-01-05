@@ -1,0 +1,75 @@
+extends layout
+
+block stylesheets
+  link(rel='stylesheet' href='/stylesheets/exercise.css')
+
+block content
+  #container
+    // 置頂列
+    #header
+      #menu_btn
+        a(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+          img(src='images/menu.svg' alt='')
+      #title Punch in !
+      #login_btn
+        a(href='/user')
+          img(src='images/user.svg' alt='')
+      #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+        #sideBar.list-group
+          a#home.list-group-item.list-group-item-action(href='/index') Home
+          a#today.list-group-item.list-group-item-action(href='/today') Today
+          a#group.list-group-item.list-group-item-action(href='/group') Group
+          a#today.list-group-item.list-group-item-action.active(href='/exercise') Exercise
+          a#today.list-group-item.list-group-item-action(href='/study') Study
+          a#analysis.list-group-item.list-group-item-action(href='/analysis') Analysis
+          a#about.list-group-item.list-group-item-action(href='/about') About us
+    // 內容
+    #main
+        h1#exercise_title 運動目標
+        #add_exercise_box
+            label(for="add_exercise") 我的運動目標
+            input(type="text" id="add_exercise" name="add_exercise" placeholder="新增運動目標")
+            button#add_exercise_btn(type="button" onclick="addExercise()") +
+        #group_list
+            #todo_title
+              | 未完成:
+              strong#todo-item-amount 1
+              | 項
+            #todo_container
+              .item.timer
+                .checkbox
+                  img(src='images/check.svg' alt='')
+                .item_name 運動項目
+                .item_edit 
+                    button#btnEdit.btn_more(type='button')
+                        img(src='images/edit.svg' alt='edit')
+                .item_update 
+                    button#btnUpdate.btn_more(type='button')
+                        img(src='images/update.svg' alt='update')
+                .item_delete
+                    button#btnDelete.btn_more(type='button')
+                        img(src='images/delete.svg' alt='')
+                #timerBtn
+                  .accordion-item
+                    h2#flush-headingOne.accordion-header
+                      .d-grid.gap-2.d-md-flex.justify-content-md-end
+                        button.btn.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne')
+                          img(src='images/clock.svg' alt='')
+                    #flush-collapseOne.accordion-collapse.collapse.timerControl(aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample')
+                      .accordion-body
+                        .timeDisplay#timeDisplay 00:00:00
+                        .time-area
+                          button#startStop.time_button(onclick='startStop()') Start
+                          button#reset.time_button(onclick='reset()') Reset
+                
+          
+        
+        #done_title
+          | 已完成:
+          strong#done-item-amount 0
+          | 項
+        #done_container
+          
+
+block javascripts
+    script(src='/javascripts/exercise.js')

@@ -1,0 +1,77 @@
+#main a{
+    text-align: center;
+    width: 220px;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+.my_btn{
+    width: 200px;
+    height: 200px;
+    border: 0px;
+    border-radius: 100px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: ghostwhite;
+    color: slategrey;
+}
+.my_btn:hover{
+    background-color: slategray;
+    color: ghostwhite;
+}
+.my_btn:active{
+    background-color: whitesmoke;
+    color: slategray;
+}
+
+#login_status{
+    text-align: center;
+    margin: 0px auto;
+    margin: 20px 0px  auto;
+    color: grey;
+    font-weight: bold;
+}
+#login_success{
+    /* display: none; */
+    text-align: center;
+    margin: 50px 20px auto;
+    color: grey;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid dimgrey;
+}
+#login_success h2{
+    font-size: 36px;
+    font-weight: bolder;
+    margin: 10px auto;
+    color: rgb(51, 51, 51);
+}
+.block{
+    margin: 10px auto;
+    padding: 5px;
+}
+#login_success h5{
+    font-weight: bold;
+    font-size: 20px;
+    margin: auto;
+    padding: 2px;
+    width: 100px;
+    background-color: lightslategray;
+    color: whitesmoke;
+    border-radius: 14px;
+}
+#login_success p{
+    font-size: 16px;
+    margin: 10px 5px auto;
+    color: rgb(87, 87, 87);
+}
+#user_out_btn{
+    font-weight: bold;
+    width: 60px;
+    height: 40px;
+    padding: 5px;
+    margin: 10px;
+    color: dimgrey;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}

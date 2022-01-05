@@ -1,0 +1,62 @@
+extends layout
+
+block stylesheets
+  link(rel='stylesheet' href='/stylesheets/user.css')
+
+block content
+    #container
+        // 置頂列
+        #header
+            #menu_btn
+                a(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+                    img(src='images/menu.svg' alt='')
+            #title Punch in !
+            #login_btn
+                a(href='/user')
+                    img(src='images/user.svg' alt='')
+            #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+                #sideBar.list-group
+                    a#home.list-group-item.list-group-item-action.active(href='/index') Home
+                    a#today.list-group-item.list-group-item-action(href='/today') Today
+                    a#group.list-group-item.list-group-item-action(href='/group') Group
+                    a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
+                    a#today.list-group-item.list-group-item-action(href='/study') Study
+                    a#analysis.list-group-item.list-group-item-action(href='/analysis') Analysis
+                    a#about.list-group-item.list-group-item-action(href='/about') About us
+        // 登入註冊
+        if username
+            #login_success
+                .row 
+                    h2 我的資訊
+                .row 
+                    .block
+                        h5 暱稱
+                        p #{name}my name
+                    .block
+                        h5 帳號
+                        p #{username}
+                    .block
+                        h5 信箱
+                        p #{mail}my mail
+                .row
+                    form(action="/user/logout", method="post") 
+                        input#user_out_btn(type='submit' value='登出')
+                    //- a(href='/user/logout')
+                    //-     button#user_out_btn(type='button') 登出
+        else
+            #main
+                #login_status.row
+                    h2 尚未登入帳號
+                    p (登入或註冊以使用更多功能)
+                .row
+                    a(href='/login')
+                        button#user_login_btn.my_btn(type='button') 登入
+                .row
+                    a(href='/sign-up')
+                        button#user_signup_btn.my_btn(type='button') 註冊
+        
+            
+        
+
+block javascripts
+    script(src='/javascripts/myuser.js')

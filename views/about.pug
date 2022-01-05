@@ -1,0 +1,44 @@
+extends layout
+
+block stylesheets
+  link(rel='stylesheet' href='/stylesheets/about.css')
+
+block content
+    #container
+        // 置頂列
+        #header
+            #menu_btn
+                a(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+                    img(src='images/menu.svg' alt='')
+            #title Punch in !
+            #login_btn
+                a(href='/user')
+                    img(src='images/user.svg' alt='')
+        #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+            #sideBar.list-group
+                a#home.list-group-item.list-group-item-action(href='/index') Home
+                a#today.list-group-item.list-group-item-action(href='/today') Today
+                a#group.list-group-item.list-group-item-action(href='/group') Group
+                a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
+                a#today.list-group-item.list-group-item-action(href='/study') Study
+                a#analysis.list-group-item.list-group-item-action(href='/analysis') Analysis
+                a#about.list-group-item.list-group-item-action.active(href='/about') About us
+        // 內容
+        #main
+            .part
+                p.sub_title 【網站設立動機】
+                p.sub_content
+                    |    我們想做一個網站可以輕鬆紀錄自己的習慣，
+                    br
+                    |    且能查看自己的活動時長，更能定期追蹤習慣，
+                    br
+                    |    幫助人們堅持目標！              
+            .part
+                p.sub_title 【網站目標族群】
+                p.sub_content 想要自我管理、維持生活習慣，且容易忘記目標的人。
+            .part
+                p.sub_title 【網站製作團隊】
+                p.sub_content
+                    | 元智大學資訊傳播學系
+                    br
+                    | 製作人員：劉佳玲、涂紜瑄、王維亭

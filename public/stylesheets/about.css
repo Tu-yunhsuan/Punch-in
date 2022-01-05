@@ -1,0 +1,19 @@
+.part{
+    background-color: whitesmoke;
+    margin-top: 20px;
+    padding: 10px;
+}
+.sub_title{
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(176, 179, 146);
+}
+.sub_content{
+    padding: 0px 50px 10px 50px;
+    font-weight: bolder;
+    font-size: 18px;
+    color: rgb(85, 85, 81);
+    text-align: center;
+}

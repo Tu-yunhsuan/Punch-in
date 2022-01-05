@@ -1,0 +1,34 @@
+/* 首頁 */
+#main a{
+    text-align: center;
+    width: 220px;
+    margin: 0px auto;
+    margin-top: 50px;
+    border-radius: 50px;
+}
+.my_btn{
+    width: 200px;
+    height: 130px;
+    border: 0px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: ghostwhite;
+    color: slategrey;
+}
+.my_btn:hover{
+    background-color: slategray;
+    color: ghostwhite;
+}
+.my_btn:active{
+    background-color: whitesmoke;
+    color: slategray;
+}
+#status p{
+    text-align:right;
+    margin: 10px 10px 0px 0px;
+    font-weight: bold;
+    font-size: 18px;
+    color: slategray;
+}

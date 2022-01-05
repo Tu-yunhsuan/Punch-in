@@ -1,0 +1,61 @@
+extends layout
+
+block stylesheets
+  link(rel='stylesheet' href='/stylesheets/signup.css')
+
+block content
+    #container
+        // 置頂列
+        #header
+            #menu_btn
+                a(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+                    img(src='images/menu.svg' alt='')
+            #title Punch in !
+            #login_btn
+                a(href='/user')
+                    img(src='images/user.svg' alt='')
+            #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+                #sideBar.list-group
+                    a#home.list-group-item.list-group-item-action.active(href='/index') Home
+                    a#today.list-group-item.list-group-item-action(href='/today') Today
+                    a#group.list-group-item.list-group-item-action(href='/group') Group
+                    a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
+                    a#today.list-group-item.list-group-item-action(href='/study') Study
+                    a#analysis.list-group-item.list-group-item-action(href='/analysis') Analysis
+                    a#about.list-group-item.list-group-item-action(href='/about') About us
+        // 註冊
+        #signup_box
+            h1 帳號註冊
+            form(action="/user/sign-up", method="post") 
+              #signup_account
+                label(for="username") 帳號
+                input(type='text' placeholder='請輸入帳號' id="username" name="username")
+              #signup_password
+                label(for="password") 密碼
+                input(type='password' placeholder='請輸入密碼' id="password" name="password")
+              #signup_name
+                label(for="name")  暱稱
+                input(type='text' placeholder='請輸入暱稱' id="name" name="name")
+              #signup_mail
+                label(for="mail")  信箱
+                input(type='email' placeholder='*******@gmail.com' id="mail" name="mail")
+              #signup_img
+                label(for="") 選擇您的專屬頭貼
+                div
+                  img(src='images/icon-girl.png')
+                  img(src='images/icon-rapper.png')
+                  img(src='images/icon-woman.png')
+                  img(src='images/icon-boy.png')
+                div
+                  img(src='images/icon-man.png')
+                  img(src='images/icon-noface.png')
+                  img(src='images/icon-nija.png')
+                  img(src='images/icon-batman.png')
+              div
+                input#signup_submit(type='submit' value='註冊')
+            #signup_more
+              p 已經有帳號了？
+                a(href='/login') 立即登入
+
+
+block javascripts
