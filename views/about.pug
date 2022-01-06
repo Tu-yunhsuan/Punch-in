@@ -26,6 +26,9 @@ block content
                 a#about.list-group-item.list-group-item-action.active(href='/about') About us
         // 內容
         #main
+            .row 
+                h1#about_title 關於我們
+                    img#title_img(src="images/about.svg", alt="about") 
             .row
                 .part
                     p.sub_title 網站設立動機
@@ -38,7 +41,10 @@ block content
             .row
                 .part
                     p.sub_title 網站目標族群
-                    p.sub_content 想要自我管理、維持生活習慣，且容易忘記目標的人。
+                    p.sub_content 
+                        |   想要自我管理、維持生活習慣，
+                        br
+                        |   且容易忘記目標的人。
             .row
                 .part
                     p.sub_title 網站製作團隊
@@ -47,7 +53,7 @@ block content
                 .part
                     p.sub_title 網站製作人員
                     .sub_content
-                        p.project_member 劉佳玲
+                        p.project_member 劉佳伶
                             a(href="https://github.com/EmilyLiu0928",target="_blank")
                                 img(src="images/github.svg", alt="github:EmilyLiu0928")
                         p.project_member 涂紜瑄
@@ -56,3 +62,4 @@ block content
                         p.project_member 王維亭
                             a(href="https://github.com/waitingfuuu",target="_blank")
                                 img(src="images/github.svg", alt="github:waitingfuuu")
+                        

@@ -1,9 +1,20 @@
+#about_title{
+    text-align: center;
+    font-weight: bold;
+    margin: 30px auto 0px auto;
+    color: rgb(37, 37, 37);
+}
+#title_img{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
 .part{
     width: 500px;
     height: 100%;
     text-align: center;
     background-color: whitesmoke;
-    margin: 35px auto 10px auto;
+    margin: 25px auto 10px auto;
     padding: 10px;
     border-radius: 20px;
 }
