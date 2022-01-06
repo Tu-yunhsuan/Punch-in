@@ -23,6 +23,10 @@ router.get('/about', (req, res) => {
 router.get('/today', (req, res) => {
   res.render('today');
 });
+/* Today List*/
+router.get('/todayList', (req, res) => {
+  res.render('todayList');
+});
 /* Group */
 router.get('/group', (req, res) => {
   res.render('group');

@@ -17,8 +17,8 @@ block content
     #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
       #sideBar.list-group
         a#home.list-group-item.list-group-item-action(href='/index') Home
-        a#today.list-group-item.list-group-item-action(href='/today') Today
-        a#group.list-group-item.list-group-item-action(href='/group') Group
+        a#today.list-group-item.list-group-item-action(href='/todayList') Today List
+        //- a#group.list-group-item.list-group-item-action(href='/group') Group
         a#today.list-group-item.list-group-item-action(href='/habit') Habit
         a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
         a#today.list-group-item.list-group-item-action(href='/study') Study
@@ -28,7 +28,7 @@ block content
     if username
       #main
         .row 
-          h1#analysis_title 習慣與時間分析
+          h1#analysis_title 數據分析
             img#title_img(src="images/line-graph.png", alt="chart") 
         .row
           a.link_css(href='/analysis-pie')
@@ -36,8 +36,8 @@ block content
               img(src="images/pie-chart.svg", alt="pie-chart")
         .row
           a.link_css(href='/analysis-line')
-            button.analysis_btn(type='button') 打卡折線圖
-              img(src="images/line-chart.svg", alt="line-chart")  
+            button.analysis_btn(type='button') 打卡完成率
+              img(src="images/bar-chart.svg", alt="bar-charts")  
                 
     else
       #guest

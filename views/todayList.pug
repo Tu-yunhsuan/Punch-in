@@ -1,0 +1,32 @@
+extends layout
+
+block stylesheets
+  link(rel='stylesheet' href='/stylesheets/todayList.css')
+
+block content
+  #container
+    // 置頂列
+    #header
+      #menu_btn
+        a(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+          img(src='images/menu.svg' alt='')
+      #title Punch in !
+      #login_btn
+        a(href='/user')
+          img(src='images/user.svg' alt='')
+      #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+        #sideBar.list-group
+          a#home.list-group-item.list-group-item-action(href='/index') Home
+          a#today.list-group-item.list-group-item-action.active(href='/todayList') Today List
+          //- a#group.list-group-item.list-group-item-action(href='/group') Group
+          a#today.list-group-item.list-group-item-action(href='/habit') Habit
+          a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
+          a#today.list-group-item.list-group-item-action(href='/study') Study
+          a#analysis.list-group-item.list-group-item-action(href='/analysis') Analysis
+          a#about.list-group-item.list-group-item-action(href='/about') About us
+    // 內容
+    #main
+      
+
+block javascripts
+    script(src='/javascripts/todayList.js')
