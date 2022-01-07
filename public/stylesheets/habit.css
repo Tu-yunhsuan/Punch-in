@@ -1,5 +1,6 @@
 #container {
     background-color: rgb(223, 216, 208);
+    /* height: 100%; */
 }
 /* 標題列 */
 #header {
@@ -105,6 +106,10 @@
     border-radius: 10px;
     color: rgb(77, 77, 77);
 }
+#add_habit_count option{
+    background-color: rgb(139, 127, 113);
+    color: rgb(63, 59, 54);
+}
 #add_habit_btn{
     width: 40px;
     height: 40px;
@@ -114,17 +119,23 @@
     font-weight: bold;
     margin: 5px;
 }
-/* .item_edit{
-    width: 50px;
-    padding: 5px;
-}
-.item_delete{
-    width: 50px;
-    padding: 5px;
-} */
 .btn_more{
     width: 40px;
     padding: 5px;
     border: 0px;
     background-color: transparent;
+}
+
+/* 20220107 */
+.item_times{
+    border-radius: 5px;
+    background-color: transparent;
+    color: rgb(77, 77, 77);;
+}
+.item_times option{
+    background-color: rgb(158, 153, 148);
+    color: rgb(211, 206, 199);
+}
+.item_name_input{
+    width: 100%;
 }

@@ -26,24 +26,25 @@ block content
                     a#about.list-group-item.list-group-item-action(href='/about') About us
         // 登入註冊
         if username
-            #login_success
-                .row 
-                    h2 我的資訊
-                .row 
-                    .block
-                        h5 暱稱
-                        p #{name}my name
-                    .block
-                        h5 帳號
-                        p #{username}
-                    .block
-                        h5 信箱
-                        p #{mail}my mail
-                .row
-                    form(action="/user/logout", method="post") 
-                        input#user_out_btn(type='submit' value='登出')
-                    //- a(href='/user/logout')
-                    //-     button#user_out_btn(type='button') 登出
+            #main
+                #login_success
+                    .row 
+                        h2 我的資訊
+                    .row 
+                        .block
+                            h5 暱稱
+                            p #{data.name}
+                        .block
+                            h5 帳號
+                            p #{data.username}
+                        .block
+                            h5 信箱
+                            p #{data.mail}
+                    .row
+                        form(action="/user/logout", method="post") 
+                            input#user_out_btn(type='submit' value='登出')
+                        //- a(href='/user/logout')
+                        //-     button#user_out_btn(type='button') 登出
         else
             #main  
                 .row

@@ -57,10 +57,19 @@ router.get('/analysis-pie', (req, res) => {
 // 登入註冊
 /* user */
 router.get('/user', (req, res) => {
-  // res.render('user');
-  var name = req.body.name;
-  var mail = req.body.mail;
-  res.render('user', {username: req.session.user, name: name, mail: mail});
+  let query=req.session.user;
+  console.log(query);
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      // let name=name; 
+      // let mail=mail; 
+      // res.render('user', {username: req.session.user, name: name, mail: mail});
+      res.render('user',{data: data,username: req.session.user});
+    }else{
+      res.render('user');
+    }
+  });
 });
 /* Login */
 router.get('/login', (req, res) => {
@@ -76,32 +85,18 @@ router.post('/user/login', function (req, res) {
 	  var postData = {
         username: req.body.username,
         password: req.body.password,
-        name: req.body.name,
-        mail: req.body.mail
+        // name: req.body.name,
+        // mail: req.body.mail
     };
     User.findOne({
         username: postData.username,
         password: postData.password,
     }, function (err, data) {
+        console.log(data);
         if(err) throw err;
         if(data){
             console.log('登入成功');
             req.session.user = postData.username;
-            // 使用者資料
-            // var user = db.collection('user').findOne({"username":postData.username});
-            // if(user){
-            //   var user_name=user.name; 
-            //   var user_mail=user.mail; 
-            //   console.log("AAAname:"+user.name);
-            //   console.log("AAAmail:"+user.mail);
-            // }
-            // db.collection('user').findOne({"username":username}, toArray((err, data)=>{
-            //     if(err) throw err;
-            //     console.log(data);
-            //     db.close;
-            // }));
-            // req.session.name=user_name;
-            // req.session.mail=user_mail;
             console.log("username:"+req.session.user);
             // console.log("name:"+req.session.name);
             // console.log("mail:"+req.session.mail);

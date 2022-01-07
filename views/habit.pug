@@ -32,13 +32,15 @@ block content
             label(for="add_habit") 我的習慣
             input(type="text" id="add_habit" name="add_habit" placeholder="新增習慣")
             label(for="count") 次數 
-            select#add_habit_count(name='count')
+            select#add_habit_count(name='add_habit_count')
                 option(value='1' selected='') 1次
                 option(value='2') 2次
                 option(value='3') 3次
                 option(value='4') 4次
                 option(value='5') 5次
                 option(value='6') 6次
+                option(value='7') 7次
+                option(value='8') 8次
             button#add_habit_btn(type="button" onclick="addHabit()") +
         #group_list
             #todo_title

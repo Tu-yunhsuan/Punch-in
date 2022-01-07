@@ -43,8 +43,10 @@
     text-align: center;
 }
 #guest{
+    height: 1015px;
     text-align: center;
-    margin: 30px  auto;
+    margin:0 auto;
+    padding-top: 50px;
 }
 #guest h3{
     color: sienna;

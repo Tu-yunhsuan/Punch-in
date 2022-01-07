@@ -26,12 +26,13 @@ block content
         a#about.list-group-item.list-group-item-action(href='/about') About us
     
     // 內容
-    #status
-      if username
-        p 目前身分：#{username}
-      else
-        p 目前身分：訪客
+    
     #main
+      #status
+        if username
+          p 目前身分：#{username}
+        else
+          p 目前身分：訪客
       .row
         a(href='/todayList')
           button#my_today.my_btn(type='button') Today List

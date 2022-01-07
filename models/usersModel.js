@@ -9,6 +9,9 @@ var userSchema = new Schema({
         type: String,
         unique: true
     },
+    // tag:{
+    //     type: Int32Array
+    // },
     password: {
         type: String
     },
@@ -18,6 +21,7 @@ var userSchema = new Schema({
         type: Date,
         default : Date.now()
     }
+    
 });
 // 將數據模型暴露出去
 module.exports = mongoose.model('users', userSchema);

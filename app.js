@@ -10,6 +10,7 @@ var myRouter = require('./routes/router');
 // var usersRouter = require('./routes/users');
 var api_exercise = require('./routes/api_exercise');
 var api_study = require('./routes/api_study');
+var api_habit = require('./routes/api_habit');
 
 //登入註冊mongodb
 var mongoose = require('mongoose');            
@@ -41,6 +42,7 @@ app.use('/', myRouter);
 // app.use('/users', usersRouter);
 app.use('/api_exercise', api_exercise);
 app.use('/api_study', api_study);
+app.use('/api_habit', api_habit);
 app.use('/public',express.static('public'));
 
 // catch 404 and forward to error handler

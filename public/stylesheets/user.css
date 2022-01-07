@@ -3,10 +3,11 @@
     width: 380px;
     margin: 0px auto;
     margin-top: 50px;
+    margin-bottom: 30px;
 }
 .my_btn{
-    width: 380px;
-    height: 380px;
+    width: 350px;
+    height: 350px;
     border: 0px;
     border-radius: 50px;
     text-align: center;
@@ -25,11 +26,11 @@
     color: slategray;
 }
 .btn_img{
-    width: 280px;
-    height: 280px;
+    width: 250px;
+    height: 250px;
     margin: 25px;
     margin-top: 10px;
-    padding: 30px;
+    padding: 40px;
 }
 #login_status{
     text-align: center;

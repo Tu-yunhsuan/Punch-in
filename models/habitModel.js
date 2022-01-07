@@ -9,14 +9,15 @@ mongoose.connect(url, {
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-    console.log("MongoDB連線成功(exercise)");
+    console.log("MongoDB連線成功(habit)");
 });
 
-const exerciseSchema = new mongoose.Schema({
+const habitSchema = new mongoose.Schema({
     title: String,
+    times: Number,
     status: Boolean
 });
-exerciseSchema.set('collection', 'exercise');
-const model = mongoose.model('exercise', exerciseSchema);
+habitSchema.set('collection', 'habit');
+const model = mongoose.model('habit', habitSchema);
 
 module.exports = model;
