@@ -43,16 +43,53 @@ block content
                   input(type='email' placeholder='*******@gmail.com' id="mail" name="mail")
                 #signup_img
                   label(for="") 選擇您的專屬頭貼
-                  div
-                    img(src='images/icon-girl.png')
-                    img(src='images/icon-rapper.png')
-                    img(src='images/icon-woman.png')
-                    img(src='images/icon-boy.png')
-                  div
-                    img(src='images/icon-man.png')
-                    img(src='images/icon-noface.png')
-                    img(src='images/icon-nija.png')
-                    img(src='images/icon-batman.png')
+                  .row.justify-content-center.photo_row
+                    .col-2.photo_btn
+                      input#photo1(type='radio' name='photo' value='icon-girl')
+                      label(for="photo1") 
+                        img(src='images/icon-girl.png')
+                    .col-2.photo_btn
+                      input#photo2(type='radio' name='photo' value='icon-rapper')
+                      label(for="photo2") 
+                        img(src='images/icon-rapper.png')
+                    .col-2.photo_btn
+                      input#photo3(type='radio' name='photo' value='icon-woman')
+                      label(for="photo3") 
+                        img(src='images/icon-woman.png')
+                    .col-2.photo_btn
+                      input#photo4(type='radio' name='photo' value='icon-boy')
+                      label(for="photo4") 
+                        img(src='images/icon-boy.png')
+
+                  .row.justify-content-center.photo_row
+                    .col-2.photo_btn
+                      input#photo5(type='radio' name='photo' value='icon-man')
+                      label(for="photo5") 
+                        img(src='images/icon-man.png')
+                    .col-2.photo_btn
+                      input#photo6(type='radio' name='photo' value='icon-noface')
+                      label(for="photo6") 
+                        img(src='images/icon-noface.png')
+                    .col-2.photo_btn
+                      input#photo7(type='radio' name='photo' value='icon-nija')
+                      label(for="photo7") 
+                        img(src='images/icon-nija.png')
+                    .col-2.photo_btn
+                      input#photo8(type='radio' name='photo' value='icon-batman')
+                      label(for="photo8") 
+                        img(src='images/icon-batman.png')
+                      
+                  //- div
+                  //-   img(src='images/icon-girl.png')
+                  //-   img(src='images/icon-rapper.png')
+                  //-   img(src='images/icon-woman.png')
+                  //-   img(src='images/icon-boy.png')
+                  //- div
+                  //-   img(src='images/icon-man.png')
+                  //-   img(src='images/icon-noface.png')
+                  //-   img(src='images/icon-nija.png')
+                  //-   img(src='images/icon-batman.png')
+
                 div
                   input#signup_submit(type='submit' value='註冊')
               #signup_more

@@ -9,16 +9,12 @@ var userSchema = new Schema({
         type: String,
         unique: true
     },
-    // tag:{
-    //     type: Int32Array
-    // },
     password: {
         type: String
     },
     name: String,
     mail: String,
-    title: String,
-    status: Boolean,
+    photo: String,
     createAt: {
         type: Date,
         default : Date.now()

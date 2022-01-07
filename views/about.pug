@@ -13,7 +13,10 @@ block content
             #title Punch in !
             #login_btn
                 a(href='/user')
-                    img(src='images/user.svg' alt='')
+                    if username 
+                        img(src=`images/${data.photo}.png` alt='')
+                    else
+                        img(src='images/user.svg' alt='')
         #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
             #sideBar.list-group
                 a#home.list-group-item.list-group-item-action(href='/index') Home
@@ -53,13 +56,13 @@ block content
                 .part
                     p.sub_title 網站製作人員
                     .sub_content
-                        p.project_member 劉佳伶
-                            a(href="https://github.com/EmilyLiu0928",target="_blank")
-                                img(src="images/github.svg", alt="github:EmilyLiu0928")
                         p.project_member 涂紜瑄
                             a(href="https://github.com/Tu-yunhsuan",target="_blank")
                                 img(src="images/github.svg", alt="github:Tu-yunhsuan") 
                         p.project_member 王維亭
                             a(href="https://github.com/waitingfuuu",target="_blank")
                                 img(src="images/github.svg", alt="github:waitingfuuu")
+                        p.project_member 劉佳伶
+                            a(href="https://github.com/EmilyLiu0928",target="_blank")
+                                img(src="images/github.svg", alt="github:EmilyLiu0928")
                         

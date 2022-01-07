@@ -45,17 +45,28 @@
 }
 
 /* 成功登入 */
-#login_success{
-    /* display: none; */
+#hi_user{
+    margin: 20px;
+}
+#hi_user h1{
     text-align: center;
-    margin: 50px 20px auto;
+    font-weight: bold;
+    color: rgb(160, 157, 128);
+    text-shadow: 0.06em 0.06em 0.06em rgb(238, 237, 181)
+}
+#login_success{
+    text-align: center;
+    margin: 80px;
+    margin-top: 30px;
+    padding: 30px;
     color: grey;
     font-weight: bold;
-    border-radius: 20px;
-    border: 2px solid dimgrey;
+    border-radius: 50px;
+    border: 2px solid gray;
+    background-color: whitesmoke;
 }
 #login_success h2{
-    font-size: 36px;
+    font-size: 30px;
     font-weight: bolder;
     margin: 10px auto;
     color: rgb(51, 51, 51);
@@ -82,9 +93,8 @@
 #user_out_btn{
     font-weight: bold;
     width: 60px;
-    height: 40px;
     padding: 5px;
-    margin: 10px;
+    margin: 20px;
     color: dimgrey;
     background-color: whitesmoke;
     border-radius: 10px;

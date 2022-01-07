@@ -4,16 +4,43 @@ var User = require('../models/usersModel');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('index', {data: data,username: req.session.user});
+    }else{
+      res.render('index');
+    }
+  });
+  // res.render('index', {username: req.session.user});
 });
 router.get('/index', function(req, res, next) {
-  res.render('index', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('index', {data: data,username: req.session.user});
+    }else{
+      res.render('index');
+    }
+  });
+  // res.render('index', {username: req.session.user});
 });
 
 // 網站各頁面路由
 /* About */
 router.get('/about', (req, res) => {
-  res.render('about');
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('about', {data: data,username: req.session.user});
+    }else{
+      res.render('about');
+    }
+  });
+  // res.render('about', {username: req.session.user});
 });
 /* Today */
 router.get('/today', (req, res) => {
@@ -21,7 +48,16 @@ router.get('/today', (req, res) => {
 });
 /* Today List*/
 router.get('/todayList', (req, res) => {
-  res.render('todayList', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('todayList', {data: data,username: req.session.user});
+    }else{
+      res.render('todayList');
+    }
+  });
+  // res.render('todayList', {username: req.session.user});
 });
 /* Group */
 router.get('/group', (req, res) => {
@@ -29,25 +65,79 @@ router.get('/group', (req, res) => {
 });
 /* Habit */
 router.get('/habit', (req, res) => {
-  res.render('habit', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('habit', {data: data,username: req.session.user});
+    }else{
+      res.render('habit');
+    }
+  });
+  // res.render('habit', {username: req.session.user});
 });
 /* Exercise */
 router.get('/exercise', (req, res) => {
-  res.render('exercise', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('exercise', {data: data,username: req.session.user});
+    }else{
+      res.render('exercise');
+    }
+  });
+  // res.render('exercise', {username: req.session.user});
 });
 /* Study */
 router.get('/study', (req, res) => {
-  res.render('study', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('study', {data: data,username: req.session.user});
+    }else{
+      res.render('study');
+    }
+  });
+  // res.render('study', {username: req.session.user});
 });
 /* Analysis */
 router.get('/analysis', (req, res) => {
-  res.render('analysis', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('analysis', {data: data,username: req.session.user});
+    }else{
+      res.render('analysis');
+    }
+  });
+  // res.render('analysis', {username: req.session.user});
 });
 router.get('/analysis-line', (req, res) => {
-  res.render('analysis-line', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('analysis-line', {data: data,username: req.session.user});
+    }else{
+      res.render('analysis-line');
+    }
+  });
+  // res.render('analysis-line', {username: req.session.user});
 });
 router.get('/analysis-pie', (req, res) => {
-  res.render('analysis-pie', {username: req.session.user});
+  let query=req.session.user;
+  User.findOne({username:query},function(err,data){
+    if(err) throw err;
+    if(data){
+      res.render('analysis-pie', {data: data,username: req.session.user});
+    }else{
+      res.render('analysis-pie');
+    }
+  });
+  // res.render('analysis-pie', {username: req.session.user});
 });
 
 //-----------------------------------------------------------------------------
@@ -75,6 +165,7 @@ router.get('/sign-up', (req, res) => {
 });
 
 // 登入註冊功能將寫在 兩個post 路由裡 
+// 登入
 router.post('/user/login', function (req, res) {
 	  var postData = {
         username: req.body.username,
@@ -100,13 +191,15 @@ router.post('/user/login', function (req, res) {
         }
     } )
 });
+// 註冊
 router.post('/user/sign-up', function (req, res) {
   // 獲取用戶提交的信息
   var postData = {
     username: req.body.username,
     password: req.body.password,
     name: req.body.name,
-    mail: req.body.mail
+    mail: req.body.mail,
+    photo: req.body.photo
   };
   // 查詢是否被註冊
   User.findOne({username: postData.username}, function (err, data) {

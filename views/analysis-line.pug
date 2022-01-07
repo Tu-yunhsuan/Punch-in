@@ -13,12 +13,14 @@ block content
       #title Punch in !
       #login_btn
         a(href='/user')
-          img(src='images/user.svg' alt='')
+          if username 
+            img(src=`images/${data.photo}.png` alt='')
+          else
+            img(src='images/user.svg' alt='')
     #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
       #sideBar.list-group
         a#home.list-group-item.list-group-item-action(href='/index') Home
         a#today.list-group-item.list-group-item-action(href='/todayList') Today List
-        //- a#group.list-group-item.list-group-item-action(href='/group') Group
         a#today.list-group-item.list-group-item-action(href='/habit') Habit
         a#today.list-group-item.list-group-item-action(href='/exercise') Exercise
         a#today.list-group-item.list-group-item-action(href='/study') Study
@@ -28,8 +30,8 @@ block content
     if username
       #main
         h1 打卡完成率
-          .row
-            img#char-image(src="images/bar-chart.svg", alt="chart")
+        .row
+          img#char-image(src="images/bar-chart.svg", alt="chart") 
     else
       #guest
         .row
@@ -42,7 +44,5 @@ block content
         .row
           p 已經有帳號了！
             a.link_css(href='/login') 立即登入
-
-
 
 block javascripts

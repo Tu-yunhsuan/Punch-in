@@ -13,7 +13,10 @@ block content
       #title Punch in !
       #login_btn
         a(href='/user')
-          img(src='images/user.svg' alt='')
+          if username 
+            img(src=`images/${data.photo}.png` alt='')
+          else
+            img(src='images/user.svg' alt='')
     #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
       #sideBar.list-group
         a#home.list-group-item.list-group-item-action.active(href='/index') Home
@@ -30,7 +33,7 @@ block content
     #main
       #status
         if username
-          p 目前身分：#{username}
+          p 目前帳號：#{username}
         else
           p 目前身分：訪客
       .row
