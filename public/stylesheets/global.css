@@ -89,7 +89,7 @@ body {
     height: 35px;
     border: 2px solid rgb(61, 61, 61);
     border-radius: 50px;
-    padding: 1px;
+    padding: 1px auto;
     display: flex;
     align-items: center;
 }

@@ -46,13 +46,15 @@
 
 /* 成功登入 */
 #hi_user{
-    margin: 20px;
+    margin: 30px;
 }
 #hi_user h1{
     text-align: center;
-    font-weight: bold;
-    color: rgb(160, 157, 128);
-    text-shadow: 0.06em 0.06em 0.06em rgb(238, 237, 181)
+    font-weight: 600;
+    font-family: monospace, "黑體", sans-serif;
+    color: rgb(144, 146, 115);
+    text-shadow: 0.06em 0.06em 0.06em whitesmoke;
+    letter-spacing:5px;
 }
 #login_success{
     text-align: center;
