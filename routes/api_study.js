@@ -6,7 +6,8 @@ var studyModel = require('../models/studyModel.js');
 router.post('/addStudy', function (req, res) {
     var newStudy = new studyModel({
         title: req.body.title,
-        status: false
+        status: false,
+        tag: req.session.user
     });
     newStudy.save(function (err, data) {
         if (err) {
@@ -28,7 +29,7 @@ router.post('/addStudy', function (req, res) {
 
 //登入畫面擷取所有資料
 router.get('/getStudy', function (req, res) {
-    studyModel.find(function(err, data){
+    studyModel.find({tag:req.session.user},function(err, data){
         if(err) console.log(err);
         res.json(data);
     })

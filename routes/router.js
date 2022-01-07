@@ -2,10 +2,6 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/usersModel');
 
-// var mongoose = require('mongoose');            
-// mongoose.connect('mongodb://localhost/PunchIn')//連接本地數據庫PunchIn
-// var db = mongoose.connection;
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {username: req.session.user});
@@ -25,7 +21,7 @@ router.get('/today', (req, res) => {
 });
 /* Today List*/
 router.get('/todayList', (req, res) => {
-  res.render('todayList');
+  res.render('todayList', {username: req.session.user});
 });
 /* Group */
 router.get('/group', (req, res) => {
@@ -33,15 +29,15 @@ router.get('/group', (req, res) => {
 });
 /* Habit */
 router.get('/habit', (req, res) => {
-  res.render('habit');
+  res.render('habit', {username: req.session.user});
 });
 /* Exercise */
 router.get('/exercise', (req, res) => {
-  res.render('exercise');
+  res.render('exercise', {username: req.session.user});
 });
 /* Study */
 router.get('/study', (req, res) => {
-  res.render('study');
+  res.render('study', {username: req.session.user});
 });
 /* Analysis */
 router.get('/analysis', (req, res) => {
@@ -53,6 +49,7 @@ router.get('/analysis-line', (req, res) => {
 router.get('/analysis-pie', (req, res) => {
   res.render('analysis-pie', {username: req.session.user});
 });
+
 //-----------------------------------------------------------------------------
 // 登入註冊
 /* user */
@@ -62,9 +59,6 @@ router.get('/user', (req, res) => {
   User.findOne({username:query},function(err,data){
     if(err) throw err;
     if(data){
-      // let name=name; 
-      // let mail=mail; 
-      // res.render('user', {username: req.session.user, name: name, mail: mail});
       res.render('user',{data: data,username: req.session.user});
     }else{
       res.render('user');
@@ -84,9 +78,7 @@ router.get('/sign-up', (req, res) => {
 router.post('/user/login', function (req, res) {
 	  var postData = {
         username: req.body.username,
-        password: req.body.password,
-        // name: req.body.name,
-        // mail: req.body.mail
+        password: req.body.password
     };
     User.findOne({
         username: postData.username,
@@ -98,8 +90,6 @@ router.post('/user/login', function (req, res) {
             console.log('登入成功');
             req.session.user = postData.username;
             console.log("username:"+req.session.user);
-            // console.log("name:"+req.session.name);
-            // console.log("mail:"+req.session.mail);
             res.redirect('/');  //導回首頁
             // res.send('登入成功');
             // req.session.isLogin = true;
@@ -153,6 +143,5 @@ router.get('/userList', function (req, res) {
     res.send(data)
   });
 });
-
 
 module.exports = router;

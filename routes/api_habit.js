@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var habitModel = require('../models/habitModel.js');
+var User = require('../models/usersModel');
 
 router.post('/addHabit', function (req, res) {
     var newHabit = new habitModel({
         title: req.body.title,
         times: req.body.times,
-        status: false
+        status: false,
+        tag: req.session.user
     });
     newHabit.save(function (err, data) {
         if (err) {
@@ -28,7 +30,7 @@ router.post('/addHabit', function (req, res) {
 
 //登入畫面擷取所有資料
 router.get('/getHabit', function (req, res) {
-    habitModel.find(function(err, data){
+    habitModel.find({tag:req.session.user},function(err, data){
         if(err) console.log(err);
         res.json(data);
     })

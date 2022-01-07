@@ -17,6 +17,8 @@ var userSchema = new Schema({
     },
     name: String,
     mail: String,
+    title: String,
+    status: Boolean,
     createAt: {
         type: Date,
         default : Date.now()

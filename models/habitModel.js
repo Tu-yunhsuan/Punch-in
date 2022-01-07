@@ -15,7 +15,8 @@ db.once('open', () => {
 const habitSchema = new mongoose.Schema({
     title: String,
     times: Number,
-    status: Boolean
+    status: Boolean,
+    tag: String
 });
 habitSchema.set('collection', 'habit');
 const model = mongoose.model('habit', habitSchema);

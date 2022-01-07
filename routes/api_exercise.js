@@ -1,13 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var exerciseModel = require('../models/exerciseModel.js');
-// var allList = []; //存放所有待辦事項
-// var id = 1; //紀錄待辦事項的索引值
+var userModel=require('../models/usersModel.js');
+
 router.post('/addExercise', function (req, res) {
     var newExercise = new exerciseModel({
         title: req.body.title,
-        status: false
+        status: false,
+        tag: req.session.user
     });
+    
     newExercise.save(function (err, data) {
         if (err) {
             res.json({
@@ -24,11 +26,13 @@ router.post('/addExercise', function (req, res) {
             console.log("新增成功");
         }
     })
+    
 });
 
 //登入畫面擷取所有資料
 router.get('/getExercise', function (req, res) {
-    exerciseModel.find(function(err, data){
+    // 加上判斷後在render
+    exerciseModel.find({tag:req.session.user}, function(err, data){
         if(err) console.log(err);
         res.json(data);
     })

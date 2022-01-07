@@ -79,6 +79,7 @@ function editStudy(id) {
     $('#btnDelete' + id).addClass("d-none");
     $('#btnUpdate' + id).removeClass("d-none");
     $('#title' + id).attr("readonly", false);
+    $('#title' + id).css("border", "1px solid gray");
 }
 //更新待辦事項
 function updateStudy(id) {
@@ -92,6 +93,7 @@ function updateStudy(id) {
             $('#btnDelete'+id).removeClass("d-none");
             $('#btnUpdate'+id).addClass("d-none");
             $('#title'+id).attr("readonly", true);
+            $('#title' + id).css("border", "0px");
         }
     });
 }

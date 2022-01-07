@@ -1,4 +1,4 @@
-//-------新增運動目標-------
+//-------新增習慣-------
 getHabit();
 
 function addHabit() {
@@ -32,14 +32,7 @@ function getHabit() {
 function newHabit(data) {
     console.log(data);
     var status = (data.status) ? "checked" : "";
-    // var obj = $(`times${data._id}`);
-    // for (let i=0; i< obj.options.length; i++)
-    // {
-    //     if (obj.options[i].value == data.times)
-    //     {
-    //         obj.selectedIndex = i;
-    //     }
-    // }
+    
     var content =
         `<div class="item timer" id="${data._id}">
             <div class="checkbox"><img src="images/check.svg" alt=""/></div>
@@ -77,16 +70,17 @@ function newHabit(data) {
     $('#todo_title').after(content);
 }
 
-//編輯待辦事項
+//編輯習慣事項
 function editHabit(id) {
     console.log("編輯習慣");
     $('#btnEdit' + id).addClass("d-none");
     $('#btnDelete' + id).addClass("d-none");
     $('#btnUpdate' + id).removeClass("d-none");
     $('#title' + id).attr("readonly", false);
+    $('#title' + id).css("border", "1px solid gray");
     $('#times' + id).removeAttr("disabled");
 }
-//更新待辦事項
+//更新習慣事項
 function updateHabit(id) {
     console.log("修改習慣");
     var title = $("#title"+id).val();
@@ -99,11 +93,12 @@ function updateHabit(id) {
             $('#btnDelete' + id).removeClass("d-none");
             $('#btnUpdate' + id).addClass("d-none");
             $('#title' + id).attr("readonly", true);
+            $('#title' + id).css("border", "0px");
             $('#times' + id).attr("disabled","disabled");
         }
     });
 }
-//刪除待辦事項
+//刪除習慣事項
 function deleteHabit(id) {
     console.log("刪除習慣");
     var API = "/api_habit/deleteHabit";
@@ -115,10 +110,3 @@ function deleteHabit(id) {
         }
     });
 }
-
-// 頁面設定
-// $(document).ready(function(){
-//     if($('main').height >= 1000 ){
-//         $('container').css("height","100%");
-//     }
-// });

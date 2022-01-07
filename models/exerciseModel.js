@@ -14,7 +14,8 @@ db.once('open', () => {
 
 const exerciseSchema = new mongoose.Schema({
     title: String,
-    status: Boolean
+    status: Boolean,
+    tag: String
 });
 exerciseSchema.set('collection', 'exercise');
 const model = mongoose.model('exercise', exerciseSchema);

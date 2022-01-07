@@ -79,6 +79,7 @@ function editExercise(id) {
     $('#btnDelete' + id).addClass("d-none");
     $('#btnUpdate' + id).removeClass("d-none");
     $('#title' + id).attr("readonly", false);
+    $('#title' + id).css("border", "1px solid gray");
 }
 //更新運動項目
 function updateExercise(id) {
@@ -92,6 +93,7 @@ function updateExercise(id) {
             $('#btnDelete'+id).removeClass("d-none");
             $('#btnUpdate'+id).addClass("d-none");
             $('#title'+id).attr("readonly", true);
+            $('#title' + id).css("border", "0px");
         }
     });
 }
