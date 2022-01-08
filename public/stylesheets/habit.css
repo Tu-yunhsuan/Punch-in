@@ -131,6 +131,7 @@
     border-radius: 5px;
     background-color: transparent;
     color: rgb(77, 77, 77);;
+    margin: 5px;
 }
 .item_times option{
     background-color: rgb(158, 153, 148);
@@ -138,4 +139,18 @@
 }
 .item_name_input{
     width: 100%;
+}
+
+/* 20220108 */
+.record_box{
+    display: inline-flex;
+    width: 300px;
+}
+.record_done{
+    color: rgb(71, 69, 62);
+    font-size: 30px;
+    margin: 0px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0px;
 }

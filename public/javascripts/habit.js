@@ -13,7 +13,7 @@ function addHabit() {
             "times": times
         };
         $.post(api, data, function (res) {
-            alert(data.title + "新增成功")
+            // alert("新增成功:" + data.title)
             newHabit(res.data);
             $('#add_habit').val('');
             $('#times').val('');
@@ -25,8 +25,7 @@ function getHabit() {
     $.get(api, function(data, status){
         for(var i=0; i<data.length; i++){
             newHabit(data[i]);
-        }
-        
+        }    
     });
 }
 function newHabit(data) {
@@ -49,6 +48,7 @@ function newHabit(data) {
                     <option value="7" >7次</option>
                     <option value="8" >8次</option>
                 </select>
+                <div id="record${data._id}" class="record_box"></div>
             </div>
             <div class="item_edit"">
                 <button class="btn_more" type="button" id="btnEdit${data._id}" onclick="editHabit('${data._id}')">
@@ -66,8 +66,19 @@ function newHabit(data) {
                 </button>
             </div>
         </div>`
-        
+    
     $('#todo_title').after(content);
+
+    // let smile = `<p class="record_done">&#9787;</p>`;
+    let multiplication = parseInt(`${data.times}`);
+    let insert = "";
+    for(let i=0;i<multiplication;i++){
+        let smile = `<button class="record_done" type="button" id="record_done${data._id}${i}" 
+                    onclick="done('${data._id}${i}')">&#9787;</button>`
+        insert+=smile;
+    }
+    // let insert = smile.repeat(multiplication);
+    $(`#record${data._id}`).append(insert);
 }
 
 //編輯習慣事項
@@ -106,7 +117,28 @@ function deleteHabit(id) {
     $.post(API, data, function(res){
         if(res.status == 0){
             $('#'+id).remove();
-            alert("刪除成功!!!");
+            // alert("刪除成功!!!");
         }
     });
 }
+
+//紀錄完成幾次(笑臉)
+function done(id) {
+    console.log("完成一次");
+    // var num = id.charAt(id.length-1);
+    // var API = "/api_habit/doneOnce";
+    // var data = {"id":id, "num":num};
+    // $.post(API, data, function(res){
+    //     if(res.status == 0){
+    //         alert("完成一次!!!");
+    //     }
+    // });
+    $('#record_done'+id).css("color","rgb(207, 162, 39)");
+}
+
+// $(function(){
+//     $('.record_done p').on("click",function(){
+//         console.log(this);
+//         $(this).css("color","red");
+//     });
+// });

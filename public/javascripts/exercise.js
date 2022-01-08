@@ -11,7 +11,7 @@ function addExercise() {
             "title": title,
         };
         $.post(api, data, function (res) {
-            alert(data.title + "新增成功")
+            // alert(data.title + "新增成功")
             newExercise(res.data);
             $('#add_exercise').val('');
         });
@@ -30,7 +30,7 @@ function newExercise(data) {
     var status = (data.status) ? "checked" : "";
     var content =
         `<div class="item timer" id="${data._id}">
-            <div class="checkbox"><img src="images/check.svg" alt=""/></div>
+            <div class="checkbox" id="checkbox${data._id}"><img src="images/check.svg" alt=""/></div>
             <div class="item_name">
                 <input type="text" class="item_name_input" id="title${data._id}" value="${data.title}" readonly>
             </div>
@@ -105,7 +105,7 @@ function deleteExercise(id) {
     $.post(API, data, function(res){
         if(res.status == 0){
             $('#'+id).remove();
-            alert("刪除成功!!!");
+            // alert("刪除成功!!!");
         }
     });
 }

@@ -11,7 +11,7 @@ function addStudy() {
             "title": title,
         };
         $.post(api, data, function (res) {
-            alert(data.title + "新增成功")
+            // alert(data.title + "新增成功")
             newStudy(res.data);
             $('#add_study').val('');
         });
@@ -105,7 +105,7 @@ function deleteStudy(id) {
     $.post(API, data, function(res){
         if(res.status == 0){
             $('#'+id).remove();
-            alert("刪除成功!!!");
+            // alert("刪除成功!!!");
         }
     });
 }

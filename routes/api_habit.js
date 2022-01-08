@@ -1,14 +1,19 @@
 var express = require('express');
 var router = express.Router();
 var habitModel = require('../models/habitModel.js');
-var User = require('../models/usersModel');
 
 router.post('/addHabit', function (req, res) {
+    // let array=[];
+    // for(let i=0;i<times;i++){
+    //     array.push(0);
+    // }
+    // console.log(array);
     var newHabit = new habitModel({
         title: req.body.title,
         times: req.body.times,
         status: false,
-        tag: req.session.user
+        tag: req.session.user,
+        // done: array,
     });
     newHabit.save(function (err, data) {
         if (err) {
@@ -74,6 +79,25 @@ router.post('/deleteHabit', function (req, res) {
     });
 });
 
-
+// 紀錄完成次數
+// router.post('/doneOnce', function (req, res) {
+//     var id = req.body.id;
+//     habitModel.findById(id, function(err, data){
+//         if(err){
+//             console.log(err);
+//             res.json({"status":1, "msg":"error"});
+//         } else {
+//             data.done[num]=1;
+//             data.save(function(err){
+//                 if(err){
+//                     console.log(err);
+//                     res.json({"status":1, "msg":"error"});
+//                 } else {
+//                     res.json({"status":0, "msg":"紀錄成功"});
+//                 }
+//             });
+//         }
+//     });
+// });
     
 module.exports = router;
