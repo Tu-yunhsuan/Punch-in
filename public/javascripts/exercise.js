@@ -1,4 +1,6 @@
 // const { data } = require("jquery");
+var todoNum = 0;
+var doneNum = 0;
 
 //-------新增運動目標-------
 getExercise();
@@ -49,7 +51,7 @@ function newExercise(data) {
                 </button>
             </div>
             <div class="item_delete"">
-                <button class="btn_more" type="button" id="btnDelete${data._id}" onclick="deleteExercise('${data._id}')">
+                <button class="btn_more" type="button" id="btnDelete${data._id}" onclick="deleteExercise('${data._id}', '${data.status}')">
                     <img src="images/delete.svg" alt="delete"/>
                 </button>
             </div>
@@ -77,10 +79,14 @@ function newExercise(data) {
         //     <img id="check_img${data._id}" class="d-none" src="images/check.svg" alt=""/>
         // </button>
         
-    if(data.status == 0) $('#todo_container').after(content);
+    if(data.status == 0) {
+        $('#todo_container').after(content);
+        $('#todo-item-amount').text(parseInt(++todoNum));
+    }
     else {
         $('#done_container').after(content);
         $("#btnCheck"+data._id).prop("checked", true);
+        $('#done-item-amount').text(parseInt(++doneNum));
     }
 }
 
@@ -110,15 +116,18 @@ function updateExercise(id) {
     });
 }
 //刪除運動項目
-function deleteExercise(id) {
+function deleteExercise(id, status) {
     console.log("刪除運動目標");
     var API = "/api_exercise/deleteExercise";
     var data = {"id":id};
     $.post(API, data, function(res){
         if(res.status == 0){
+            if(status == 'false') $('#todo-item-amount').text(parseInt(--todoNum));
+            else $('#done-item-amount').text(parseInt(--doneNum));
             $('#'+id).remove();
             // alert("刪除成功!!!");
         }
+        else alert('ye?');
     });
 }
 
@@ -134,10 +143,14 @@ function doneExercise(id, doneExercise) {
                 $('#'+id).appendTo($('#done_container'));
                 $('#check_img'+id).removeClass("d-none");
                 // $('#btnCheck'+id).attr("disabled", true);
+                $('#todo-item-amount').text(parseInt(--todoNum));
+                $('#done-item-amount').text(parseInt(++doneNum));
             } else {
                 $('#'+id).removeClass('done-item');
                 $('#'+id).appendTo($('#todo_container'));
                 $('#check_img'+id).addClass("d-none");
+                $('#todo-item-amount').text(parseInt(++todoNum));
+                $('#done-item-amount').text(parseInt(--doneNum));
             }
         }
     });
