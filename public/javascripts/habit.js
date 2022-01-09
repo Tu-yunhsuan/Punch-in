@@ -1,3 +1,6 @@
+var todoNum = 0;
+var doneNum = 0;
+
 //-------新增習慣-------
 getHabit();
 
@@ -34,7 +37,9 @@ function newHabit(data) {
     
     var content =
         `<div class="item timer" id="${data._id}">
-            <div class="checkbox"><img src="images/check.svg" alt=""/></div>
+            <div class="checkbox">
+                <input type="checkbox" class="myCheck" id="btnCheck${data._id}" onclick="doneHabit('${data._id}', this)">
+            </div>
             <div class="item_name">
                 <input type="text" class="item_name_input" id="title${data._id}" value="${data.title}" readonly>
                 <select class="item_times" id="times${data._id}" name="times${data._id}" disabled>
@@ -61,13 +66,25 @@ function newHabit(data) {
                 </button>
             </div>
             <div class="item_delete"">
-                <button class="btn_more" type="button" id="btnDelete${data._id}" onclick="deleteHabit('${data._id}')">
+                <button class="btn_more" type="button" id="btnDelete${data._id}" onclick="deleteHabit('${data._id}', '${data.status}')">
                     <img src="images/delete.svg" alt="delete"/>
                 </button>
             </div>
         </div>`
     
-    $('#todo_title').after(content);
+    // $('#todo_title').after(content);
+    if(data.status == 0) {
+        $('#todo_container').after(content);
+        $('#todo-item-amount').text(parseInt(++todoNum));
+    }
+    else {
+        $('#done_container').after(content);
+        $("#btnCheck"+data._id).prop("checked", true);
+        $('#done-item-amount').text(parseInt(++doneNum));
+        $('#'+data._id).addClass('done-item');
+        $('#'+data._id).appendTo($('#done_container'));
+        $('#check_img'+data._id).removeClass("d-none");
+    }
 
     // let smile = `<p class="record_done">&#9787;</p>`;
     let multiplication = parseInt(`${data.times}`);
@@ -116,6 +133,8 @@ function deleteHabit(id) {
     var data = {"id":id};
     $.post(API, data, function(res){
         if(res.status == 0){
+            if(status == 'false') $('#todo-item-amount').text(parseInt(--todoNum));
+            else $('#done-item-amount').text(parseInt(--doneNum));
             $('#'+id).remove();
             // alert("刪除成功!!!");
         }
@@ -142,3 +161,28 @@ function done(id) {
 //         $(this).css("color","red");
 //     });
 // });
+
+//完成習慣事項
+function doneHabit(id, doneHabit) {
+    console.log("完成運動目標");
+    var API = "/api_habit/donehabit";
+    var data = {"id":id, "status":doneHabit.checked};
+    $.post(API, data, function(res){ 
+        if(res.status == 0){
+            if(doneHabit.checked){
+                $('#'+id).addClass('done-item');
+                $('#'+id).appendTo($('#done_container'));
+                $('#check_img'+id).removeClass("d-none");
+                // $('#btnCheck'+id).attr("disabled", true);
+                $('#todo-item-amount').text(parseInt(--todoNum));
+                $('#done-item-amount').text(parseInt(++doneNum));
+            } else {
+                $('#'+id).removeClass('done-item');
+                $('#'+id).appendTo($('#todo_container'));
+                $('#check_img'+id).addClass("d-none");
+                $('#todo-item-amount').text(parseInt(++todoNum));
+                $('#done-item-amount').text(parseInt(--doneNum));
+            }
+        }
+    });
+}

@@ -79,6 +79,28 @@ router.post('/deleteHabit', function (req, res) {
     });
 });
 
+//完成待辦事項
+router.post('/doneHabit', function (req, res) {
+    var id = req.body.id;
+    habitModel.findById(id, function(err, data){
+        if(err){
+            console.log(err);
+            res.json({"status":1, "msg":"error"});
+        } else {
+            // data.title = req.body.title;
+            data.status = req.body.status;
+            data.save(function(err){
+                if(err){
+                    console.log(err);
+                    res.json({"status":1, "msg":"error"});
+                } else {
+                    res.json({"status":0, "msg":"修改成功"});
+                }
+            });
+        }
+    });
+});
+
 // 紀錄完成次數
 // router.post('/doneOnce', function (req, res) {
 //     var id = req.body.id;
