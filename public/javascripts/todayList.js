@@ -40,7 +40,7 @@ function getExercise() {
     });
 }
 
-//----------------------------Exercise-------------------------------
+//----------------------------Study-------------------------------
 var totalStudyNum = 0;
 var doneStudyNum = 0;
 var undoneStudyNum = 0;
