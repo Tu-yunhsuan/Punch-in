@@ -84,6 +84,8 @@ function newHabit(data) {
         $('#'+data._id).addClass('done-item');
         $('#'+data._id).appendTo($('#done_container'));
         $('#check_img'+data._id).removeClass("d-none");
+        $('#btnEdit' + data._id).addClass("d-none");
+        $('#btnDelete' + data._id).addClass("d-none");
     }
 
     // let smile = `<p class="record_done">&#9787;</p>`;
