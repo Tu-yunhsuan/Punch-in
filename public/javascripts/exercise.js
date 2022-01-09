@@ -1,3 +1,5 @@
+const { data } = require("jquery");
+
 //-------新增運動目標-------
 getExercise();
 
@@ -30,7 +32,9 @@ function newExercise(data) {
     var status = (data.status) ? "checked" : "";
     var content =
         `<div class="item timer" id="${data._id}">
-            <div class="checkbox" id="checkbox${data._id}"><img src="images/check.svg" alt=""/></div>
+            <div class="checkbox">
+                <input type="checkbox" class="myCheck" id="btnCheck${data._id}" onclick="doneExercise('${data._id}', this)">
+            </div>
             <div class="item_name">
                 <input type="text" class="item_name_input" id="title${data._id}" value="${data.title}" readonly>
             </div>
@@ -69,6 +73,10 @@ function newExercise(data) {
             </div>
         </div>`
         
+        // <button class="btn_more" type="button" id="btnCheck${data._id}" onclick="doneExercise('${data._id}')">
+        //     <img id="check_img${data._id}" class="d-none" src="images/check.svg" alt=""/>
+        // </button>
+        
     $('#todo_title').after(content);
 }
 
@@ -106,6 +114,27 @@ function deleteExercise(id) {
         if(res.status == 0){
             $('#'+id).remove();
             // alert("刪除成功!!!");
+        }
+    });
+}
+
+//完成運動項目
+function doneExercise(id, doneExercise) {
+    console.log("完成運動目標");
+    var API = "/api_exercise/doneExercise";
+    var data = {"id":id, "status":doneExercise.checked};
+    $.post(API, data, function(res){ 
+        if(res.status == 0){
+            if(doneExercise.checked){
+                $('#'+id).addClass('done-item');
+                $('#'+id).appendTo($('#done_container'));
+                $('#check_img'+id).removeClass("d-none");
+                // $('#btnCheck'+id).attr("disabled", true);
+            } else {
+                $('#'+id).removeClass('done-item');
+                $('#'+id).appendTo($('#todo_container'));
+                $('#check_img'+id).addClass("d-none");
+            }
         }
     });
 }
@@ -189,40 +218,41 @@ function reset(id)
 }
 //----------------------------------------------------
 
-$(document).ready(function () {
+// $(document).ready(function () {
     // $("#Btndropdown").click(function () {
     //     $("#timeRecord").toggle();
     // })
-    $('#todo_container .item .checkbox img').hide();
-    $('#done_container .item .checkbox img').show();
 
-    $('#todo_container .timer .checkbox').click(function(){
-        $(this).find('img').toggle();
-        $(this).parent().appendTo($('#done_container'));
-        $(this).parent().addClass('done-item');
+    // $('#todo_container .item .checkbox img').hide();
+    // $('#done_container .item .checkbox img').show();
 
-        todoNum = parseInt($('#todo-item-amount').text());
-        doneNum = parseInt($('#done-item-amount').text());
-        $('#todo-item-amount').text(parseInt(todoNum-1));
-        $('#done-item-amount').text(parseInt(doneNum+1));
+    // $('#todo_container .timer .checkbox').click(function(){
+    //     $(this).find('img').toggle();
+    //     $(this).parent().appendTo($('#done_container'));
+    //     $(this).parent().addClass('done-item');
 
-        $(this).parent().parent().find('#timerBtn').replaceWith('<div id="timerBtn">00:50</div>');
-    })
+    //     todoNum = parseInt($('#todo-item-amount').text());
+    //     doneNum = parseInt($('#done-item-amount').text());
+    //     $('#todo-item-amount').text(parseInt(todoNum-1));
+    //     $('#done-item-amount').text(parseInt(doneNum+1));
 
-    $('#done_container .timer .checkbox').click(function(){
-        $(this).find('img').toggle();
-        $(this).parent().appendTo($('#todo_container'));
-        $(this).parent().removeClass('done-item');
+    //     $(this).parent().parent().find('#timerBtn').replaceWith('<div id="timerBtn">00:50</div>');
+    // })
 
-        todoNum = parseInt($('#todo-item-amount').text());
-        doneNum = parseInt($('#done-item-amount').text());
-        $('#todo-item-amount').text(parseInt(todoNum+1));
-        $('#done-item-amount').text(parseInt(doneNum-1));
-    })
+    // $('#done_container .timer .checkbox').click(function(){
+    //     $(this).find('img').toggle();
+    //     $(this).parent().appendTo($('#todo_container'));
+    //     $(this).parent().removeClass('done-item');
 
-    $('.num').click(function(){
-        var N = parseInt($(this).text());
-        N++;
-        $(this).text(parseInt(N));
-    })
-})
+    //     todoNum = parseInt($('#todo-item-amount').text());
+    //     doneNum = parseInt($('#done-item-amount').text());
+    //     $('#todo-item-amount').text(parseInt(todoNum+1));
+    //     $('#done-item-amount').text(parseInt(doneNum-1));
+    // })
+
+    // $('.num').click(function(){
+    //     var N = parseInt($(this).text());
+    //     N++;
+    //     $(this).text(parseInt(N));
+    // })
+// })

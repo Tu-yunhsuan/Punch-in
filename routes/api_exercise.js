@@ -60,6 +60,7 @@ router.post('/updateExercise', function (req, res) {
         }
     });
 });
+
 //刪除待辦事項
 router.post('/deleteExercise', function (req, res) {
     var id = req.body.id;
@@ -75,6 +76,27 @@ router.post('/deleteExercise', function (req, res) {
     });
 });
 
+//完成待辦事項
+router.post('/doneExercise', function (req, res) {
+    var id = req.body.id;
+    exerciseModel.findById(id, function(err, data){
+        if(err){
+            console.log(err);
+            res.json({"status":1, "msg":"error"});
+        } else {
+            // data.title = req.body.title;
+            data.status = req.body.status;
+            data.save(function(err){
+                if(err){
+                    console.log(err);
+                    res.json({"status":1, "msg":"error"});
+                } else {
+                    res.json({"status":0, "msg":"修改成功"});
+                }
+            });
+        }
+    });
+});
 
     
 module.exports = router;
