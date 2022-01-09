@@ -125,8 +125,7 @@ function deleteExercise(id, status) {
     var data = {"id":id};
     $.post(API, data, function(res){
         if(res.status == 0){
-            if(status == 'false') $('#todo-item-amount').text(parseInt(--todoNum));
-            else $('#done-item-amount').text(parseInt(--doneNum));
+            $('#todo-item-amount').text(parseInt(--todoNum));
             $('#'+id).remove();
             // alert("刪除成功!!!");
         }
@@ -148,12 +147,16 @@ function doneExercise(id, doneExercise) {
                 // $('#btnCheck'+id).attr("disabled", true);
                 $('#todo-item-amount').text(parseInt(--todoNum));
                 $('#done-item-amount').text(parseInt(++doneNum));
+                $('#btnEdit' + id).addClass("d-none");
+                $('#btnDelete' + id).addClass("d-none");
             } else {
                 $('#'+id).removeClass('done-item');
                 $('#'+id).appendTo($('#todo_container'));
                 $('#check_img'+id).addClass("d-none");
                 $('#todo-item-amount').text(parseInt(++todoNum));
                 $('#done-item-amount').text(parseInt(--doneNum));
+                $('#btnEdit' + id).removeClass("d-none");
+                $('#btnDelete' + id).removeClass("d-none");
             }
         }
     });

@@ -37,3 +37,25 @@
     font-weight: bold;
     padding: 10px;
 }
+
+#text{
+    justify-content: center;
+}
+.part_box{
+    text-align: center;
+    /* background-color: whitesmoke; */
+    /* margin: 40px auto; */
+    /* margin: 0;
+    padding: 0;
+    border-radius: 20px; */
+}
+#main h3{
+    font-weight: bold;
+    margin: 10px;
+    color: rgb(192, 142, 85);
+}
+.total_item, .done_item, .undone_item, .rate_item{
+    font-size: 18px;
+    font-weight: bold;
+    /* margin: 20px auto; */
+}
