@@ -87,6 +87,9 @@ function newExercise(data) {
         $('#done_container').after(content);
         $("#btnCheck"+data._id).prop("checked", true);
         $('#done-item-amount').text(parseInt(++doneNum));
+        $('#'+data._id).addClass('done-item');
+        $('#'+data._id).appendTo($('#done_container'));
+        $('#check_img'+data._id).removeClass("d-none");
     }
 }
 
