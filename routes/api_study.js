@@ -8,7 +8,7 @@ router.post('/addStudy', function (req, res) {
         title: req.body.title,
         status: false,
         tag: req.session.user,
-        time:req.body.time
+        time: req.body.time
     });
     newStudy.save(function (err, data) {
         if (err) {

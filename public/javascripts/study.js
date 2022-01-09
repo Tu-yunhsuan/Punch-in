@@ -29,45 +29,45 @@ function newStudy(data) {
     console.log(data);
     var status = (data.status) ? "checked" : "";
     var content =
-        `<div class="item timer" id="${data._id}">
-            <div class="checkbox"><img src="images/check.svg" alt=""/></div>
-            <div class="item_name">
-                <input type="text" class="item_name_input" id="title${data._id}" value="${data.title}" readonly>
-            </div>
-            <div class="item_edit"">
-                <button class="btn_more" type="button" id="btnEdit${data._id}" onclick="editStudy('${data._id}')">
-                    <img src="images/edit.svg" alt="edit"/>
-                </button>
-            </div>
-            <div class="item_update"">
-                <button class="btn_more d-none" type="button" id="btnUpdate${data._id}" onclick="updateStudy('${data._id}')">
-                    <img src="images/update.svg" alt="update"/>
-                </button>
-            </div>
-            <div class="item_delete"">
-                <button class="btn_more" type="button" id="btnDelete${data._id}" onclick="deleteStudy('${data._id}')">
-                    <img src="images/delete.svg" alt="delete"/>
-                </button>
-            </div>
-            <div id="timerBtn">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${data._id}" aria-expanded="false" aria-controls="flush-collapseOne${data._id}"><img src="images/clock.svg" alt=""/></button>
-                </div>
-                </h2>
-                <div class="accordion-collapse collapse timerControl" id="flush-collapseOne${data._id}" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                    <div class="timeDisplay" id="timeDisplay${data._id}">00:00:00</div>
-                    <div class="time-area">
-                        <button class="time_button" id="startStop${data._id}" onclick="startStop('${data._id}')">Start</button>
-                        <button class="time_button" id="reset${data._id}" onclick="reset('${data._id}')">Reset</button>
+    `<div class="item timer" id="${data._id}">
+    <div class="checkbox"><img src="images/check.svg" alt=""/></div>
+    <div class="item_name">
+        <input type="text" class="item_name_input" id="title${data._id}" value="${data.title}" readonly>
+    </div>
+    <div class="item_edit"">
+        <button class="btn_more" type="button" id="btnEdit${data._id}" onclick="editStudy('${data._id}')">
+            <img src="images/edit.svg" alt="edit"/>
+        </button>
+    </div>
+    <div class="item_update"">
+        <button class="btn_more d-none" type="button" id="btnUpdate${data._id}" onclick="updateStudy('${data._id}')">
+            <img src="images/update.svg" alt="update"/>
+        </button>
+    </div>
+    <div class="item_delete"">
+        <button class="btn_more" type="button" id="btnDelete${data._id}" onclick="deleteStudy('${data._id}')">
+            <img src="images/delete.svg" alt="delete"/>
+        </button>
+    </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="images/clock.svg" alt="">
+    </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <h5 class="modal-title" id="exampleModalLabel">計時器</h5>
+                        <div class="modal-body">
+                            <div id="display${data._id}">00:00:00</div>
+                            <div class="timeArea">
+                                <button id="startStop${data._id}" onclick="startStop(${data._id})">開始</button> 
+                                <button id="reset${data._id}" onclick="reset(${data._id})">重設</button>
+                                <button id="saveTime${data._id}" onclick="saveTime(${data._id})">儲存</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
             </div>
-            </div>
-        </div>`
+    </div>`
         
     $('#todo_title').after(content);
 }
