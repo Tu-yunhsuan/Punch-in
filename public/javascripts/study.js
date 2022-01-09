@@ -57,11 +57,11 @@ function newStudy(data) {
                     <div class="modal-content">
                         <h5 class="modal-title" id="exampleModalLabel">計時器</h5>
                         <div class="modal-body">
-                            <div id="display${data._id}">00:00:00</div>
+                            <div class="display" id="display${data._id}">00:00:00</div>
                             <div class="timeArea">
-                                <button id="startStop${data._id}" onclick="startStop(${data._id})">開始</button> 
-                                <button id="reset${data._id}" onclick="reset(${data._id})">重設</button>
-                                <button id="saveTime${data._id}" onclick="saveTime(${data._id})">儲存</button>
+                                <button id="startStop${data._id}" onclick="startStop('${data._id}')">開始</button> 
+                                <button id="reset${data._id}" onclick="reset('${data._id}')">重設</button>
+                                <button id="saveTime${data._id}" onclick="saveTime('${data._id}')">儲存</button>
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@ let interval = null;
 
 let status = "stopped";
 
-function stopWatch(){
+function stopWatch(id){
 
     seconds++;
 
@@ -179,47 +179,47 @@ function stopWatch(){
     else{
         displayHours = hours;
     }
-    document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+    document.getElementById("display"+id).innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 }
 
-function startStop(){
+function startStop(id){
 
     if(status === "stopped"){
         interval = window.setInterval(stopWatch, 1000);
-        document.getElementById("startStop").innerHTML = "暫停";
+        document.getElementById("startStop"+id).innerHTML = "暫停";
         status = "started";
     }
     else{
         window.clearInterval(interval);
-        document.getElementById("startStop").innerHTML = "開始";
+        document.getElementById("startStop"+id).innerHTML = "開始";
         status = "stopped";
     }
 }
 
-function reset(){
+function reset(id){
     window.clearInterval(interval);
     seconds = 0;
     minutes = 0;
     hours = 0;
-    document.getElementById("display").innerHTML = "00:00:00";
-    document.getElementById("startStop").innerHTML = "開始";
+    document.getElementById("display"+id).innerHTML = "00:00:00";
+    document.getElementById("startStop"+id).innerHTML = "開始";
 }
-function saveTime(){
+function saveTime(id){
     window.clearInterval(interval);
-    document.getElementById("startStop").innerHTML = "開始";
+    document.getElementById("startStop"+id).innerHTML = "開始";
     status = "stopped";
-    var time = document.getElementById('display').value();
-    document.getElementById('timeDisplay').innerHTML = time;
+    var time = document.getElementById('display'+id).value();
+    document.getElementById('timeDisplay'+id).innerHTML = time;
 }
-function reset(id)
-{
-    window.clearInterval(interval);
-    seconds=0;
-    minutes=0;
-    hours=0;
-    document.getElementById("timeDisplay"+id).innerHTML="00:00:00";
-    document.getElementById("startStop"+id).innerHTML="Start";
-}
+// function reset(id)
+// {
+//     window.clearInterval(interval);
+//     seconds=0;
+//     minutes=0;
+//     hours=0;
+//     document.getElementById("timeDisplay"+id).innerHTML="00:00:00";
+//     document.getElementById("startStop"+id).innerHTML="Start";
+// }
 //----------------------------------------------------
 
 $(document).ready(function () {
