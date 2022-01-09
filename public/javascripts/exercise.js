@@ -1,4 +1,4 @@
-const { data } = require("jquery");
+// const { data } = require("jquery");
 
 //-------新增運動目標-------
 getExercise();
@@ -77,7 +77,11 @@ function newExercise(data) {
         //     <img id="check_img${data._id}" class="d-none" src="images/check.svg" alt=""/>
         // </button>
         
-    $('#todo_title').after(content);
+    if(data.status == 0) $('#todo_container').after(content);
+    else {
+        $('#done_container').after(content);
+        $("#btnCheck"+data._id).prop("checked", true);
+    }
 }
 
 //編輯運動項目
