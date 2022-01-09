@@ -15,7 +15,8 @@ db.once('open', () => {
 const studySchema = new mongoose.Schema({
     title: String,
     status: Boolean,
-    tag: String
+    tag: String,
+    time: String
 });
 studySchema.set('collection', 'study');
 const model = mongoose.model('study', studySchema);

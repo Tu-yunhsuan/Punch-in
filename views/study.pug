@@ -45,6 +45,7 @@ block content
                 .checkbox
                   img(src='images/check.svg' alt='')
                 .item_name 學習項目
+                .timeDisplay 00:00:00
                 .item_edit 
                     button#btnEdit.btn_more(type='button')
                         img(src='images/edit.svg' alt='edit')
@@ -54,19 +55,18 @@ block content
                 .item_delete
                     button#btnDelete.btn_more(type='button')
                         img(src='images/delete.svg' alt='')
-                #timerBtn
-                  .accordion-item
-                    h2#flush-headingOne.accordion-header
-                      .d-grid.gap-2.d-md-flex.justify-content-md-end
-                        button.btn.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne')
-                          img(src='images/clock.svg' alt='')
-                    #flush-collapseOne.accordion-collapse.collapse.timerControl(aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample')
-                      .accordion-body
-                        .timeDisplay#timeDisplay 00:00:00
-                        .time-area
-                          button#startStop.time_button(onclick='startStop()') Start
-                          button#reset.time_button(onclick='reset()') Reset
-                
+                .show 
+                    button(onclick="showDialog()") 
+                        img(src='images/clock.svg' alt='')
+                    #dialog 
+                      #title 計時器
+                      #display 00:00:00
+                      #timeArea 
+                        button.startStop(onclick="startStop()") 開始
+                        button.reset(onclick="reset()") 重設 
+                        button.time-save(onclick="hideDialog()") 儲存
+                  
+
           
         
         #done_title
@@ -77,4 +77,4 @@ block content
           
 
 block javascripts
-    script(src='/javascripts/study.js')
+    script(src='/javascripts/study.js' type="text/javascript")

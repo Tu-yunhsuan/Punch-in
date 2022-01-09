@@ -1,4 +1,4 @@
-//-------新增運動目標-------
+//-------新增學習目標-------
 getStudy();
 
 function addStudy() {
@@ -109,74 +109,107 @@ function deleteStudy(id) {
         }
     });
 }
+//--------dialog------
+var dialog;
+window.onload=function(){
+  dialog=document.getElementById("dialog");
+}
+function showDialog(){
+  dialog.style.display="block";
+}
+function hideDialog(){
+  dialog.style.display="none";
+  function save_time()
+  {
+    var time = $('#save_time').val();
 
-
-
+        var api = "/api_study/addStudy";
+        var data = {
+                "time": time,
+            };
+            $.post(api, data, function (res) {
+                newStudy(res.data);
+                $('#save_time').val('');
+            });
+    }
+}
 //--------------------------timer---------------------------
-   
-let seconds=0;
-let minutes=0;
-let hours=0;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
-let displaySeconds=0;
-let displayMinutes=0;
-let displayHours=0;
+let displaySeconds = 0;
+let displayMinutes = 0;
+let displayHours = 0;
 
-let interval=null;
-let status="stopped";
-function stopwatch()
-{
+let interval = null;
+let status = "stopped";
+function stopWatch(){
+
     seconds++;
-    if(seconds/60===1)
-        {
-            seconds=0;
-            minutes++;
-            if(minutes/60===1)
-                {
-                    minutes=0;
-                    hours++;
-                }
+
+    if(seconds / 60 === 1){
+        seconds = 0;
+        minutes++;
+        if(minutes / 60 === 1){
+            minutes = 0;
+            hours++;
         }
-    if(seconds<10)
-        {
-            displaySeconds="0"+seconds.toString();
-        }
-    else
-    {
-        displaySeconds=seconds;
-    } 
-    if(minutes<10)
-        {
-            displayMinutes="0"+minutes.toString();
-        }
-    else
-    {
-        displayMinutes=minutes;
     }
-    if(hours<10)
-        {
-            displayHours="0"+hours.toString();
-        }
-    else
-    {
-        displayHours=hours;
+    if(seconds < 10){
+        displaySeconds = "0" + seconds.toString();
     }
-    document.getElementById("timeDisplay").innerHTML=displayHours+":"+displayMinutes+":"+displaySeconds;
+    else{
+        displaySeconds = seconds;
+    }
+    if(minutes < 10){
+        displayMinutes = "0" + minutes.toString();
+    }
+    else{
+        displayMinutes = minutes;
+    }
+    if(hours < 10){
+        displayHours = "0" + hours.toString();
+    }
+    else{
+        displayHours = hours;
+    }
+    document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+
 }
 
-function startStop(id)
-{
-    if(status==="stopped")
-        {
-            interval=window.setInterval(stopwatch,1000);
-            document.getElementById("startStop"+id).innerHTML="Stop";
-            status="started";
-        }
-    else
-    {
-        window.clearInterval(interval); document.getElementById("startStop"+id).innerHTML="Start";
-        status="stopped";
+function startStop(){
+    if(status === "stopped"){
+
+        //Start the stopwatch (by calling the setInterval() function)
+        interval = window.setInterval(stopWatch, 1000);
+        document.getElementById("startStop").innerHTML = "暫停";
+        status = "started";
     }
+    else{
+
+        window.clearInterval(interval);
+        document.getElementById("startStop").innerHTML = "開始";
+        status = "stopped";
+    }
+
+}
+function reset(){
+
+    window.clearInterval(interval);
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    document.getElementById("display").innerHTML = "00:00:00";
+    document.getElementById("startStop").innerHTML = "開始";
+
+}
+function saveTime(){
+    window.clearInterval(interval);
+    document.getElementById("startStop").innerHTML = "Start";
+    status = "stopped";
+    var time = document.getElementById('display').value();
+    document.getElementById('timeDisplay').innerHTML = time;
 }
 function reset(id)
 {
