@@ -30,27 +30,27 @@ block content
     if username
       #main
         h1 打卡完成率
-        .row
-          img#char-image(src="images/bar-chart.svg", alt="chart") 
-        #text.row
-          #habit_box.part_box.col-3
-              h3 我的習慣
-              p#total_habit.total_item 總共有 0 項
-              p#done_habit.done_item 已完成: 0項
-              p#undone_habit.undone_item 未完成: 0項
-              p#rate_habit.rate_item 完成率: 0%
-          #exercise_box.part_box.col-3
-              h3 運動目標
-              p#total_exercise.total_item 總共有 0 項
-              p#done_exercise.done_item 已完成: 0項
-              p#undone_exercise.undone_item 未完成: 0項
-              p#rate_exercise.rate_item 完成率: 0%
-          #study_box.part_box.col-3
-              h3 學習目標
-              p#total_study.total_item 總共有 0 項
-              p#done_study.done_item 已完成: 0項
-              p#undone_study.undone_item 未完成: 0項
-              p#rate_study.rate_item 完成率: 0%
+        //- .row
+          //- img#char-image(src="images/bar-chart.svg", alt="chart") 
+        #text
+          #habit_box.part_box.row
+              h3#title_habit.col-6 我的習慣完成率
+              //- p#total_habit.total_item 總共有 0 項
+              //- p#done_habit.done_item 已完成: 0項
+              //- p#undone_habit.undone_item 未完成: 0項
+              p#rate_habit.rate_item.col-6 完成率: 0%
+          #exercise_box.part_box.row
+              h3#title_exercise.col-6 運動目標完成率
+              //- p#total_exercise.total_item 總共有 0 項
+              //- p#done_exercise.done_item 已完成: 0項
+              //- p#undone_exercise.undone_item 未完成: 0項
+              p#rate_exercise.rate_item.col-6 完成率: 0%
+          #study_box.part_box.row
+              h3#title_study.col-6 學習目標完成率
+              //- p#total_study.total_item 總共有 0 項
+              //- p#done_study.done_item 已完成: 0項
+              //- p#undone_study.undone_item 未完成: 0項
+              p#rate_study.rate_item.col-6 完成率: 0%
     else
       #guest
         .row

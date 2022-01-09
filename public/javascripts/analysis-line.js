@@ -19,7 +19,8 @@ function getHabit() {
         $('#undone_habit').text("未完成: " + parseInt(undoneHabitNum) + "項"); 
 
         rateHabit = doneHabitNum / totalHabitNum * 100;
-        $('#rate_habit').text("完成率: " + parseInt(rateHabit) + "%");
+        $('#rate_habit').text(parseInt(rateHabit) + "%");
+        // $('#rate_habit').text("完成率: " + parseInt(rateHabit) + "%");
     });
 }
 
@@ -44,7 +45,8 @@ function getExercise() {
         $('#undone_exercise').text("未完成: " + parseInt(undoneExerciseNum) + "項");
         
         rateExercise = doneExerciseNum / totalExerciseNum * 100;
-        $('#rate_exercise').text("完成率: " + parseInt(rateExercise) + "%");
+        $('#rate_exercise').text(parseInt(rateExercise) + "%");
+        // $('#rate_exercise').text("完成率: " + parseInt(rateExercise) + "%");
     });
 }
 
@@ -69,7 +71,8 @@ function getStudy() {
         $('#undone_study').text("未完成: " + parseInt(undoneStudyNum) + "項");
 
         rateExercise = doneStudyNum / totalStudyNum * 100;
-        $('#rate_study').text("完成率: " + parseInt(rateStudy) + "%");
+        $('#rate_study').text(parseInt(rateStudy) + "%");
+        // $('#rate_study').text("完成率: " + parseInt(rateStudy) + "%");
     });
 }
 
