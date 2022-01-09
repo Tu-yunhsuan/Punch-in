@@ -143,7 +143,9 @@ let displayMinutes = 0;
 let displayHours = 0;
 
 let interval = null;
+
 let status = "stopped";
+
 function stopWatch(){
 
     seconds++;
@@ -151,6 +153,7 @@ function stopWatch(){
     if(seconds / 60 === 1){
         seconds = 0;
         minutes++;
+
         if(minutes / 60 === 1){
             minutes = 0;
             hours++;
@@ -162,12 +165,14 @@ function stopWatch(){
     else{
         displaySeconds = seconds;
     }
+
     if(minutes < 10){
         displayMinutes = "0" + minutes.toString();
     }
     else{
         displayMinutes = minutes;
     }
+
     if(hours < 10){
         displayHours = "0" + hours.toString();
     }
@@ -175,38 +180,33 @@ function stopWatch(){
         displayHours = hours;
     }
     document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
-
 }
 
 function startStop(){
-    if(status === "stopped"){
 
-        //Start the stopwatch (by calling the setInterval() function)
+    if(status === "stopped"){
         interval = window.setInterval(stopWatch, 1000);
         document.getElementById("startStop").innerHTML = "暫停";
         status = "started";
     }
     else{
-
         window.clearInterval(interval);
         document.getElementById("startStop").innerHTML = "開始";
         status = "stopped";
     }
-
 }
-function reset(){
 
+function reset(){
     window.clearInterval(interval);
     seconds = 0;
     minutes = 0;
     hours = 0;
     document.getElementById("display").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "開始";
-
 }
 function saveTime(){
     window.clearInterval(interval);
-    document.getElementById("startStop").innerHTML = "Start";
+    document.getElementById("startStop").innerHTML = "開始";
     status = "stopped";
     var time = document.getElementById('display').value();
     document.getElementById('timeDisplay').innerHTML = time;

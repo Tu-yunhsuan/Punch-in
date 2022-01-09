@@ -55,20 +55,20 @@ block content
                 .item_delete
                     button#btnDelete.btn_more(type='button')
                         img(src='images/delete.svg' alt='')
-                .show 
-                    button(onclick="showDialog()") 
-                        img(src='images/clock.svg' alt='')
-                    #dialog 
-                      #title 計時器
-                      #display 00:00:00
-                      #timeArea 
-                        button.startStop(onclick="startStop()") 開始
-                        button.reset(onclick="reset()") 重設 
-                        button.time-save(onclick="hideDialog()") 儲存
-                  
+                button.btn.btn-primary(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                  img(src='images/clock.svg' alt='')
+                #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                  .modal-dialog
+                    .modal-content
+                      h5#exampleModalLabel.modal-title 計時器
+                      .modal-body
+                        .display 00:00:00
+                        .timeArea
+                          button#startStop(onclick='startStop()') 開始
+                          button#reset(onclick='reset()') 重設
+                          button#saveTime(onclick='saveTime()') 儲存
 
-          
-        
+            
         #done_title
           | 已完成:
           strong#done-item-amount 0
