@@ -37,3 +37,47 @@
     font-weight: bold;
     padding: 10px;
 }
+
+#title_exerciseTime{
+    color: rgb(206, 181, 68);
+    text-align: center;
+    margin-top: 75px;
+    padding-left: 50px;
+}
+#title_studyTime{
+    color: rgb(134, 155, 110);
+    text-align: center;
+    margin-top: 80px;
+    padding-left: 50px;
+}
+#time_habit{
+    background-color: rgb(223, 216, 208);
+    color: rgb(134, 119, 86);
+    text-align: center;
+}
+#time_exercise{
+    background-color: rgb(241, 237, 206);
+    color: rgb(206, 181, 68);
+    text-align: center;
+}
+#time_study{
+    background-color: rgb(218, 231, 200);
+    color: rgb(134, 155, 110);
+    text-align: center;
+}
+.time_item{
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    /* background-color: rgb(134, 119, 86); */
+    color: white;
+    font-size: 150%;
+    padding: 80px 0;
+    text-align: center;
+    align-self: center;
+    /* float: right; */
+}
+#text{
+    justify-content: center;
+}

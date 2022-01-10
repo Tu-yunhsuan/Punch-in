@@ -32,7 +32,17 @@ block content
       #main
         h1 時間圓餅圖
         .row
-          img#char-image(src="images/pie-chart-image.svg", alt="chart") 
+          img#char-image(src="images/pie-chart-image.svg", alt="chart")
+          h1 完成時間總時長
+        //- .row
+          //- img#char-image(src="images/bar-chart.svg", alt="chart") 
+        #text
+          #exercise_box.part_box.row
+              h3#title_exerciseTime.col-6 運動目標完成時間
+              p#time_exercise.time_item.col-6 
+          #study_box.part_box.row
+              h3#title_studyTime.col-6 學習目標完成時間
+              p#time_study.time_item.col-6  
     else
       #guest
         .row
@@ -47,3 +57,4 @@ block content
             a.link_css(href='/login') 立即登入
 
 block javascripts
+    script(src='/javascripts/analysis-pie.js')
