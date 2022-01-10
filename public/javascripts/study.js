@@ -6,15 +6,16 @@ getStudy();
 
 function addStudy() {
     var title = $('#add_study').val();
+    var time = '00:00:00';
     if (title == "") {
         alert("請輸入學習內容!");
     } else {
         var api = "/api_study/addStudy";
         var data = {
             "title": title,
+            "time": time,
         };
         $.post(api, data, function (res) {
-            // alert(data.title + "新增成功")
             newStudy(res.data);
             $('#add_study').val('');
         });
@@ -39,6 +40,7 @@ function newStudy(data) {
     <div class="item_name">
         <input type="text" class="item_name_input" id="title${data._id}" value="${data.title}" readonly>
     </div>
+    <div id="item_time_display${data._id}">00:00:00</div>
     <div class="item_edit"">
         <button class="btn_more" type="button" id="btnEdit${data._id}" onclick="editStudy('${data._id}')">
             <img src="images/edit.svg" alt="edit"/>
@@ -54,24 +56,24 @@ function newStudy(data) {
             <img src="images/delete.svg" alt="delete"/>
         </button>
     </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn" id="btnTime${data._id}" data-bs-toggle="modal" data-bs-target="#exampleModal${data._id}">
         <img src="images/clock.svg" alt="">
     </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <h5 class="modal-title" id="exampleModalLabel">計時器</h5>
-                        <div class="modal-body">
-                            <div class="display" id="display${data._id}">00:00:00</div>
-                            <div class="timeArea">
-                                <button id="startStop${data._id}" onclick="startStop('${data._id}')">開始</button> 
-                                <button id="reset${data._id}" onclick="reset('${data._id}')">重設</button>
-                                <button id="saveTime${data._id}" onclick="saveTime('${data._id}')">儲存</button>
-                            </div>
-                        </div>
+    <div class="modal fade" id="exampleModal${data._id}" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <h5 class="modal-title" id="exampleModalLabel">計時器</h5>
+                <div class="modal-body">
+                    <div class="display" id="display${data._id}">${data.time}</div>
+                    <div class="timeArea">
+                        <button id="startStop${data._id}" class="timerControl" onclick="startStop('${data._id}')">開始</button> 
+                        <button id="reset${data._id}" class="timerControl" onclick="reset('${data._id}')">重設</button>
+                        <button id="saveTime${data._id}" class="timerControl" data-bs-dismiss="modal" arai-label="Close" onclick="saveTime('${data._id}')">儲存</button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
     </div>`
         
     // $('#todo_title').after(content);
@@ -88,7 +90,9 @@ function newStudy(data) {
         $('#check_img'+data._id).removeClass("d-none");
         $('#btnEdit' + data._id).addClass("d-none");
         $('#btnDelete' + data._id).addClass("d-none");
+        $('#btnTime' + data._id).addClass("d-none");
     }
+    $('#item_time_display'+data._id).text(data.time);
 }
 
 //編輯待辦事項
@@ -145,6 +149,7 @@ function doneStudy(id, doneStudy) {
                 $('#done-item-amount').text(parseInt(++doneNum));
                 $('#btnEdit' + id).addClass("d-none");
                 $('#btnDelete' + id).addClass("d-none");
+                $('#btnTime' + id).addClass("d-none");
             } else {
                 $('#'+id).removeClass('done-item');
                 $('#'+id).appendTo($('#todo_container'));
@@ -152,6 +157,7 @@ function doneStudy(id, doneStudy) {
                 $('#done-item-amount').text(parseInt(--doneNum));
                 $('#btnEdit' + id).removeClass("d-none");
                 $('#btnDelete' + id).removeClass("d-none");
+                $('#btnTime' + id).removeClass("d-none");
             }
         }
     });
@@ -186,124 +192,99 @@ let seconds = 0;
 let minutes = 0;
 let hours = 0;
 
-let displaySeconds = 0;
-let displayMinutes = 0;
-let displayHours = 0;
+let displaySeconds = "";
+let displayMinutes = "";
+let displayHours = "";
+let displayAll="";
 
 let interval = null;
 
 let status = "stopped";
 
-function stopWatch(id){
-
-    seconds++;
-
-    if(seconds / 60 === 1){
-        seconds = 0;
-        minutes++;
-
-        if(minutes / 60 === 1){
-            minutes = 0;
-            hours++;
-        }
-    }
-    if(seconds < 10){
-        displaySeconds = "0" + seconds.toString();
-    }
-    else{
-        displaySeconds = seconds;
-    }
-
-    if(minutes < 10){
-        displayMinutes = "0" + minutes.toString();
-    }
-    else{
-        displayMinutes = minutes;
-    }
-
-    if(hours < 10){
-        displayHours = "0" + hours.toString();
-    }
-    else{
-        displayHours = hours;
-    }
-    document.getElementById("display"+id).innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
-}
-
 function startStop(id){
-
+    
     if(status === "stopped"){
-        interval = window.setInterval(stopWatch, 1000);
-        document.getElementById("startStop"+id).innerHTML = "暫停";
+        
+        let timeArray = $("#item_time_display"+id).text().split(":");
+
+        seconds = parseInt(timeArray[2]) ;
+        minutes = parseInt(timeArray[1]);
+        hours = parseInt(timeArray[0]);
+
+        interval = window.setInterval(function (){
+            console.log(seconds);
+
+
+            seconds++;
+            
+            if(seconds / 60 === 1){
+                seconds = 0;
+                minutes++;
+        
+                if(minutes / 60 === 1){
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            if(seconds < 10){
+                displaySeconds = "0" + seconds.toString();
+            }
+            else{
+                displaySeconds = seconds;
+            }
+        
+            if(minutes < 10){
+                displayMinutes = "0" + minutes.toString();
+            }
+            else{
+                displayMinutes = minutes;
+            }
+        
+            if(hours < 10){
+                displayHours = "0" + hours.toString();
+            }
+            else{
+                displayHours = hours;
+            }
+            displayAll = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+            $("#display"+id).text(displayAll);
+        }, 1000);
+
+        $("#startStop"+id).text('暫停');
         status = "started";
     }
     else{
+        console.log('Stop')
         window.clearInterval(interval);
-        document.getElementById("startStop"+id).innerHTML = "開始";
+        // document.getElementById("startStop"+id).innerHTML = "開始";
+        $("#startStop"+id).text('開始');
         status = "stopped";
     }
 }
 
 function reset(id){
+    console.log('reset');
     window.clearInterval(interval);
     seconds = 0;
     minutes = 0;
     hours = 0;
-    document.getElementById("display"+id).innerHTML = "00:00:00";
-    document.getElementById("startStop"+id).innerHTML = "開始";
+    $("#display"+id).text('00:00:00');
+    $("#startStop"+id).text('開始');
 }
 function saveTime(id){
+    
     window.clearInterval(interval);
-    document.getElementById("startStop"+id).innerHTML = "開始";
+    $("#startStop"+id).text('開始');
     status = "stopped";
-    var time = document.getElementById('display'+id).value();
-    document.getElementById('timeDisplay'+id).innerHTML = time;
+    let time= $('#display'+id).text();
+    $("#timeDisplay"+id).text(time);
+    $("#item_time_display"+id).text(time);
+
+    var api = "/api_study/timeStudy";
+    var data = {"id":id, "time":time};
+    $.post(api, data, function(res){
+        if(res.status == 0){
+            
+        }
+    });
 }
-// function reset(id)
-// {
-//     window.clearInterval(interval);
-//     seconds=0;
-//     minutes=0;
-//     hours=0;
-//     document.getElementById("timeDisplay"+id).innerHTML="00:00:00";
-//     document.getElementById("startStop"+id).innerHTML="Start";
-// }
-//----------------------------------------------------
-
-$(document).ready(function () {
-    // $("#Btndropdown").click(function () {
-    //     $("#timeRecord").toggle();
-    // })
-    $('#todo_container .item .checkbox img').hide();
-    $('#done_container .item .checkbox img').show();
-
-    $('#todo_container .timer .checkbox').click(function(){
-        $(this).find('img').toggle();
-        $(this).parent().appendTo($('#done_container'));
-        $(this).parent().addClass('done-item');
-
-        todoNum = parseInt($('#todo-item-amount').text());
-        doneNum = parseInt($('#done-item-amount').text());
-        $('#todo-item-amount').text(parseInt(todoNum-1));
-        $('#done-item-amount').text(parseInt(doneNum+1));
-
-        $(this).parent().parent().find('#timerBtn').replaceWith('<div id="timerBtn">00:50</div>');
-    })
-
-    $('#done_container .timer .checkbox').click(function(){
-        $(this).find('img').toggle();
-        $(this).parent().appendTo($('#todo_container'));
-        $(this).parent().removeClass('done-item');
-
-        todoNum = parseInt($('#todo-item-amount').text());
-        doneNum = parseInt($('#done-item-amount').text());
-        $('#todo-item-amount').text(parseInt(todoNum+1));
-        $('#done-item-amount').text(parseInt(doneNum-1));
-    })
-
-    $('.num').click(function(){
-        var N = parseInt($(this).text());
-        N++;
-        $(this).text(parseInt(N));
-    })
-})

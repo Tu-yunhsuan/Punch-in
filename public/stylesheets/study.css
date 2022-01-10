@@ -119,9 +119,9 @@
 /* #flush-collapseOne {
     width: 350px;
 } */
-.timerControl{
+/* .timerControl{
     width: 350px;
-}
+} */
 .item_name_input{
     width: 100%;
     border: 0px;
@@ -182,6 +182,7 @@
     border: 0px;
     background-color: transparent; 
 }
+/* timer */
 .modal-content h5{
     margin:5px 0px;
     font-size:30px;

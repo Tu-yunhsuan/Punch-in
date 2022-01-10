@@ -95,6 +95,26 @@ router.post('/doneStudy', function (req, res) {
     });
 });
 
+router.post('/timeStudy', function (req, res) {
+    var id = req.body.id;
+    studyModel.findById(id, function(err, data){
+        if(err){
+            console.log(err);
+            res.json({"status":1, "msg":"error"});
+        } else {
+            data.time = req.body.time;
+            data.save(function(err){
+                if(err){
+                    console.log(err);
+                    res.json({"status":1, "msg":"error"});
+                } else {
+                    res.json({"status":0, "msg":"修改成功"});
+                }
+            });
+        }
+    });
+});
+
 
     
 module.exports = router;

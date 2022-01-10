@@ -91,12 +91,16 @@ router.get('/exercise', (req, res) => {
 });
 /* Study */
 router.get('/study', (req, res) => {
+  console.log('someone visit stdy webpage')
   let query=req.session.user;
+  console.log(req.session.user);
   User.findOne({username:query},function(err,data){
     if(err) throw err;
     if(data){
-      res.render('study', {data: data,username: req.session.user});
+      // console.log(data)
+      res.render('study', {data: data, username: req.session.user});
     }else{
+      console.log(data)
       res.render('study');
     }
   });

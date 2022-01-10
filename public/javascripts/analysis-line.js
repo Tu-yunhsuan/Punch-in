@@ -1,3 +1,5 @@
+// const e = require("express");
+
 //----------------------------Habit-------------------------------
 var totalHabitNum = 0;
 var doneHabitNum = 0;
@@ -18,9 +20,10 @@ function getHabit() {
         $('#done_habit').text("已完成: " + parseInt(doneHabitNum) + "項");
         $('#undone_habit').text("未完成: " + parseInt(undoneHabitNum) + "項"); 
 
-        rateHabit = doneHabitNum / totalHabitNum * 100;
+        if(totalHabitNum>0) rateHabit = doneHabitNum / totalHabitNum * 100;
+        else rateHabit=0;
         $('#rate_habit').text(parseInt(rateHabit) + "%");
-        // $('#rate_habit').text("完成率: " + parseInt(rateHabit) + "%");
+        
     });
 }
 
@@ -44,7 +47,12 @@ function getExercise() {
         $('#done_exercise').text("已完成: " + parseInt(doneExerciseNum) + "項");
         $('#undone_exercise').text("未完成: " + parseInt(undoneExerciseNum) + "項");
         
-        rateExercise = doneExerciseNum / totalExerciseNum * 100;
+        if(totalExerciseNum > 0)
+        {
+            rateExercise = doneExerciseNum / totalExerciseNum * 100;
+        }else{
+            rateExercise=0;
+        }
         $('#rate_exercise').text(parseInt(rateExercise) + "%");
         // $('#rate_exercise').text("完成率: " + parseInt(rateExercise) + "%");
     });
@@ -70,9 +78,10 @@ function getStudy() {
         $('#done_study').text("已完成: " + parseInt(doneStudyNum) + "項");
         $('#undone_study').text("未完成: " + parseInt(undoneStudyNum) + "項");
 
-        rateExercise = doneStudyNum / totalStudyNum * 100;
+        if(totalStudyNum>0) rateStudy = doneStudyNum / totalStudyNum * 100;
+        else rateStudy=0;
         $('#rate_study').text(parseInt(rateStudy) + "%");
-        // $('#rate_study').text("完成率: " + parseInt(rateStudy) + "%");
+        
     });
 }
 

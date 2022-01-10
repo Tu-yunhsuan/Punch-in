@@ -38,36 +38,35 @@ block content
         #group_list
             #todo_title
               | 未完成:
-              strong#todo-item-amount 1
+              strong#todo-item-amount 0
               | 項
             #todo_container
-              .item.timer
-                .checkbox
-                  img(src='images/check.svg' alt='')
-                .item_name 學習項目
-                .timeDisplay 
-                .item_edit 
-                    button#btnEdit.btn_more(type='button')
-                        img(src='images/edit.svg' alt='edit')
-                .item_update 
-                    button#btnUpdate.btn_more(type='button')
-                        img(src='images/update.svg' alt='update')
-                .item_delete
-                    button#btnDelete.btn_more(type='button')
-                        img(src='images/delete.svg' alt='')
-                button.btn.btn-primary(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
-                  img(src='images/clock.svg' alt='')
-                #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
-                  .modal-dialog
-                    .modal-content
-                      h5#exampleModalLabel.modal-title 計時器
-                      .modal-body
-                        .display 00:00:00
-                        .timeArea
-                          button#startStop(onclick='startStop()') 開始
-                          button#reset(onclick='reset()') 重設
-                          button#saveTime(onclick='saveTime()') 儲存
-
+              //- .item.timer
+              //-   .checkbox
+              //-     img(src='images/check.svg' alt='')
+              //-   .item_name 學習項目
+              //-   .timeDisplay 
+              //-   .item_edit 
+              //-       button#btnEdit.btn_more(type='button')
+              //-           img(src='images/edit.svg' alt='edit')
+              //-   .item_update 
+              //-       button#btnUpdate.btn_more(type='button')
+              //-           img(src='images/update.svg' alt='update')
+              //-   .item_delete
+              //-       button#btnDelete.btn_more(type='button')
+              //-           img(src='images/delete.svg' alt='')
+              //-   button.btn.btn-primary(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+              //-     img(src='images/clock.svg' alt='')
+              //-   #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+              //-     .modal-dialog
+              //-       .modal-content
+              //-         h5#exampleModalLabel.modal-title 計時器
+              //-         .modal-body
+              //-           .display 00:00:00
+              //-           .timeArea
+              //-             button#startStop(class="timerControl" onclick='startStop()') 開始
+              //-             button#reset(class="timerControl" onclick='reset()') 重設
+              //-             button#saveTime(class="timerControl" onclick='saveTime()') 儲存
         #done_title
           | 已完成:
           strong#done-item-amount 0
