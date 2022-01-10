@@ -11,7 +11,7 @@ function getExercise() {
         var time_to_sec = function (time) {
             for(var i=0;i<data.length;i++)
             {
-                let timeArray = $(data[i].time).text().split(":");
+                let timeArray = data[i].time.split(":");
                 var sec = parseInt(timeArray[2]) ;
                 var min = parseInt(timeArray[1]);
                 var hour = parseInt(timeArray[0]); 
@@ -33,6 +33,7 @@ function getExercise() {
             }
             
         }
+        time_to_sec();
         $('#time_exercise').text(totalExerciseHour.toString() + " 小時 " + totalExerciseMinute.toString() + " 分鐘 " + totalExerciseSecond.toString() + " 秒 ");
     });
 }
@@ -48,28 +49,29 @@ function getStudy() {
         var time_to_sec = function (time) {
             for(var i=0;i<data.length;i++)
             {
-                let timeArray = $(data[i].time).text().split(":");
+                let timeArray = data[i].time.split(":");
                 var sec = parseInt(timeArray[2]) ;
                 var min = parseInt(timeArray[1]);
                 var hour = parseInt(timeArray[0]); 
-                totalExerciseHour += hour;
-                totalExerciseMinute += min;
-                totalExerciseSecond += sec;
-                if(totalExerciseSecond >= 3600)
-                   totalExerciseHour += (totalExerciseSecond / 3600);
-                else if(totalExerciseSecond<3600 && totalExerciseSecond >= 60)
+                totalStudyHour += hour;
+                totalStudyMinute += min;
+                totalStudySecond += sec;
+                if(totalStudySecond >= 3600)
+                   totalStudyHour += (totalStudySecond / 3600);
+                else if(totalStudySecond<3600 && totalStudySecond >= 60)
                 {
-                   totalExerciseMinute += (totalExerciseSecond / 60);
-                   if(totalExerciseMinute >= 60)
-                      totalExerciseHour += totalExerciseMinute / 60;
+                   totalStudyMinute += (totalStudySecond / 60);
+                   if(totalStudyMinute >= 60)
+                      totalStudyHour += totalStudyMinute / 60;
                 }
-                else totalExerciseSecond = totalExerciseSecond;
+                else totalStudySecond = totalStudySecond;
                 console.log(sec);
                 console.log(min);
                 console.log(hour);
             }
             
         }
-        $('#time_study').text(totalExerciseHour.toString() + " 小時 " + totalExerciseMinute.toString() + " 分鐘 " + totalExerciseSecond.toString() + " 秒 ");
+        time_to_sec();
+        $('#time_study').text(totalStudyHour.toString() + " 小時 " + totalStudyMinute.toString() + " 分鐘 " + totalStudySecond.toString() + " 秒 ");
     });
 }
