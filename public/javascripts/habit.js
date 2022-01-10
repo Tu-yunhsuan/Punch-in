@@ -166,7 +166,7 @@ function done(id) {
 //完成習慣事項
 function doneHabit(id, doneHabit) {
     console.log("完成運動目標");
-    var API = "/api_habit/donehabit";
+    var API = "/api_habit/doneHabit";
     var data = {"id":id, "status":doneHabit.checked};
     $.post(API, data, function(res){ 
         if(res.status == 0){

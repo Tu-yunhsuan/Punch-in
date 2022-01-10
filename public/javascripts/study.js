@@ -1,3 +1,6 @@
+var todoNum = 0;
+var doneNum = 0;
+
 //-------新增學習目標-------
 getStudy();
 
@@ -30,7 +33,9 @@ function newStudy(data) {
     var status = (data.status) ? "checked" : "";
     var content =
     `<div class="item timer" id="${data._id}">
-    <div class="checkbox"><img src="images/check.svg" alt=""/></div>
+    <div class="checkbox">
+    <input type="checkbox" class="myCheck" id="btnCheck${data._id}" onclick="doneStudy('${data._id}', this)">
+    </div>
     <div class="item_name">
         <input type="text" class="item_name_input" id="title${data._id}" value="${data.title}" readonly>
     </div>
@@ -69,7 +74,21 @@ function newStudy(data) {
             </div>
     </div>`
         
-    $('#todo_title').after(content);
+    // $('#todo_title').after(content);
+    if(data.status == 0) {
+        $('#todo_container').after(content);
+        $('#todo-item-amount').text(parseInt(++todoNum));
+    }
+    else {
+        $('#done_container').after(content);
+        $("#btnCheck"+data._id).prop("checked", true);
+        $('#done-item-amount').text(parseInt(++doneNum));
+        $('#'+data._id).addClass('done-item');
+        $('#'+data._id).appendTo($('#done_container'));
+        $('#check_img'+data._id).removeClass("d-none");
+        $('#btnEdit' + data._id).addClass("d-none");
+        $('#btnDelete' + data._id).addClass("d-none");
+    }
 }
 
 //編輯待辦事項
@@ -104,11 +123,40 @@ function deleteStudy(id) {
     var data = {"id":id};
     $.post(API, data, function(res){
         if(res.status == 0){
+            $('#todo-item-amount').text(parseInt(--todoNum));
             $('#'+id).remove();
             // alert("刪除成功!!!");
         }
     });
 }
+
+//完成習慣事項
+function doneStudy(id, doneStudy) {
+    console.log("完成運動目標");
+    var API = "/api_study/doneStudy";
+    var data = {"id":id, "status":doneStudy.checked};
+    $.post(API, data, function(res){ 
+        if(res.status == 0){
+            if(doneStudy.checked){
+                $('#'+id).addClass('done-item');
+                $('#'+id).appendTo($('#done_container'));
+                $('#check_img'+id).removeClass("d-none");
+                $('#todo-item-amount').text(parseInt(--todoNum));
+                $('#done-item-amount').text(parseInt(++doneNum));
+                $('#btnEdit' + id).addClass("d-none");
+                $('#btnDelete' + id).addClass("d-none");
+            } else {
+                $('#'+id).removeClass('done-item');
+                $('#'+id).appendTo($('#todo_container'));
+                $('#todo-item-amount').text(parseInt(++todoNum));
+                $('#done-item-amount').text(parseInt(--doneNum));
+                $('#btnEdit' + id).removeClass("d-none");
+                $('#btnDelete' + id).removeClass("d-none");
+            }
+        }
+    });
+}
+
 //--------dialog------
 var dialog;
 window.onload=function(){
