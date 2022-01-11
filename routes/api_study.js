@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var studyModel = require('../models/studyModel.js');
-// var allList = []; //存放所有待辦事項
-// var id = 1; //紀錄待辦事項的索引值
+
 router.post('/addStudy', function (req, res) {
     var newStudy = new studyModel({
         title: req.body.title,

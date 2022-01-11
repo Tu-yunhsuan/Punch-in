@@ -14,17 +14,6 @@
     padding: 10px;
     align-items: center;
 }
-/* .checkbox {
-    min-width: 30px;
-    height: 30px;
-    border: 1.5px solid gray;
-    background-color: white;
-    margin: 0 10px;
-    padding: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 .checkbox img {
     display: none;
     width: 100%;
@@ -50,11 +39,6 @@
     padding-left: 5%;
     overflow: hidden;
 }
-/* .item_more{
-    font-size: 30px;
-    font-weight: bold;
-    margin: 5px 5px 10px 10px;
-} */
 #done_container div, #done_title, #done-item-amount {
     color: rgba(0, 0, 0, 0.5);
 }
@@ -68,12 +52,7 @@
 }
 .done-item{
     background-color: rgba(103, 116, 83, 0.35);
-    /* display: inline-flex;
-    width: 100%;
-    border: 1px solid gray;
-    font-size: 20px; */
-    /*text-decoration:line-through;*/
-    /*觸發在方框裡顯示打勾圖案*/
+   
 }
 .timeDisplay{
     font-size: 20px;
@@ -83,25 +62,7 @@
     padding: 10px 10px;
     text-align: center;
 }
-/* #Btndropdown{
-    font-size: 20px;
-    border: 1px solid gray;
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
-    margin: 15px 0px 0px 320px;
-    text-align: center;
-}
-#timeRecord{
-    width: 300px;
-    height: 80px;
-    padding: 30px;
-    border: 2px solid gray;
-    background-color: ghostwhite;
-    position: fixed;
-    top: 120px;
-    right: 10px;
-} */
+
 .time-area{
     display: inline-flex;
     float: right;
@@ -116,12 +77,6 @@
     margin: 30px 10px;
     text-align: center;
 }
-/* #flush-collapseOne {
-    width: 350px;
-} */
-/* .timerControl{
-    width: 350px;
-} */
 .item_name_input{
     width: 100%;
     border: 0px;
@@ -168,14 +123,6 @@
     font-weight: bold;
     margin: 5px;
 }
-/* .item_edit{
-    width: 50px;
-    padding: 5px;
-}
-.item_delete{
-    width: 50px;
-    padding: 5px;
-} */
 .btn_more{
     width: 40px;
     padding: 5px;

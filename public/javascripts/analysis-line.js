@@ -85,17 +85,6 @@ function getStudy() {
     });
 }
 
-//----------------------------Rate-------------------------------
-// var rateHabit = doneHabitNum / totalHabitNum;
-// var rateExercise =  parseFloat(doneExerciseNum) / parseFloat(totalExerciseNum);
-// var rateStudy = parseInt(doneStudyNum) / parseInt(totalStudyNum);
-
-// if (rateHabit > 0) $('#rate_habit').text("完成率: " + parseFloat(rateHabit) + "%");
-// else $('#rate_habit').text("完成率: 0%");
-// if (rateExercise > 0) $('#rate_exercise').text("完成率: " + parseFloat(rateExercise) + "%");
-// else $('#rate_exercise').text("完成率: 0%");
-// if (rateStudy > 0) $('#rate_study').text("完成率: " + parseFloat(rateStudy).toString() + "%");
-// else $('#rate_study').text("完成率: 0%");
 
 
 

@@ -34,11 +34,6 @@
     padding-left: 5%;
     overflow: hidden;
 }
-/* .item_more{
-    font-size: 30px;
-    font-weight: bold;
-    margin: 5px 5px 10px 10px;
-} */
 #done_container div, #done_title, #done-item-amount {
     color: rgba(0, 0, 0, 0.5);
 }
@@ -52,12 +47,7 @@
 }
 .done-item{
     background-color: rgba(169, 112, 118, 0.35);
-    /* display: inline-flex;
-    width: 100%;
-    border: 1px solid gray;
-    font-size: 20px; */
-    /*text-decoration:line-through;*/
-    /*觸發在方框裡顯示打勾圖案*/
+    
 }
 #timeDisplay{
     font-size: 30px;

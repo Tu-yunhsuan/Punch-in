@@ -43,26 +43,15 @@
 }
 .part_box{
     text-align: center;
-    /* background-color: whitesmoke; */
     margin: 40px auto;
     width: 80%;
     height: 250px;
-    /* margin: 0;
-    padding: 0;
-    border-radius: 20px; */
 }
 #main h3{
     font-weight: bold;
-    /* margin: 10px; */
     align-self: center;
-    /* padding: 30px; */
-    /* color: rgb(192, 142, 85); */
 }
-/* .total_item, .done_item, .undone_item{
-    font-size: 18px;
-    font-weight: bold;
-    margin: 20px auto;
-} */
+
 .rate_item{
     margin: 0 auto;
     width: 200px;
@@ -74,7 +63,6 @@
     padding: 50px 0;
     text-align: center;
     align-self: center;
-    /* float: right; */
 }
 #title_habit{
     color: rgb(134, 119, 86);

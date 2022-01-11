@@ -3,21 +3,16 @@
     /* font-size: 18px; */
     color: black;
 }
-/* html{
-    height: 100%;
-} */
 body {
     margin: 0;
     padding: 0;
     min-width: 360px;
 }
 #container {
-    /* height: 1080px; */
     height: 100%;
     width: 640px;
     background-color: rgba(191, 200, 215, 0.5);
     margin: 0 auto;
-    /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
 }
@@ -44,13 +39,10 @@ body {
 
 #offcanvasExample {
     width: 150px;
-    /* height: fit-content; */
-    /* margin-top: 56px; */
     border: 0;
 }
 #sideBar {
     border-radius: 0;
-    /* margin-top: 56px; */
 }
 #sideBar a {
     text-decoration: none;
@@ -78,9 +70,6 @@ body {
 #login_btn {
     width: 70px;
     height: 30px;
-    /* border: 2px solid gray;
-    border-radius: 50px; */
-    /* text-align: center; */
     display: flex;
     justify-content: center;
 }

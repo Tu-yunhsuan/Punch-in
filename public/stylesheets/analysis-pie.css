@@ -65,15 +65,11 @@
     margin: 50px auto;
     width: 300px;
     height: 200px;
-    /* border-radius: 250px; */
-    /* background-color: rgb(134, 119, 86); */
     color: white;
     font-size: 180%;
     padding: 80px 0;
     text-align: center;
     align-self: center;
-    
-    /* float: right; */
 }
 #text{
     justify-content: center;
@@ -87,14 +83,10 @@
 }
 .part_box{
     text-align: center;
-    /* background-color: whitesmoke; */
     margin: 0px auto;
     margin-top: 100px;
     width: 80%;
     height: 250px;
-    /* margin: 0;
-    padding: 0;
-    border-radius: 20px; */
 }
 #main h3,#main p{
     font-weight: bold;
